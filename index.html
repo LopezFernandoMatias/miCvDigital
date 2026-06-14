@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiCvDigital · CV + Portfolio + RRHH</title>
+    <!-- Mantener enlaces a CSS y JS externos (el usuario ya los tiene) -->
+    <!--link rel="stylesheet" href="./style.css" -->
+    <!-- Font Awesome por si lo usás en otros lados, pero las flechas ahora son texto -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+
+    <!-- TICKER actualizado -->
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span class="ticker-word pink">CV OPTIMIZADO ATS</span>
+        <span class="ticker-word yellow">PORTFOLIO DIGITAL</span>
+        <span class="ticker-word cream">CÓDIGO QR</span>
+        <span class="ticker-word pink">HOSTING + DOMINIO</span>
+        <span class="ticker-word yellow">+300 CONTACTOS RRHH</span>
+        <span class="ticker-word cream">DISEÑO MODERNO</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-word yellow">CV OPTIMIZADO ATS</span>
+        <span class="ticker-word pink">PORTFOLIO DIGITAL</span>
+        <span class="ticker-word cream">CÓDIGO QR</span>
+        <span class="ticker-word yellow">HOSTING + DOMINIO</span>
+        <span class="ticker-word pink">+300 CONTACTOS RRHH</span>
+        <span class="ticker-word cream">DISEÑO MODERNO</span>
+        <span class="ticker-sep">✦</span>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#" class="nav-logo">📄 MiCvDigital</a>
+      <ul class="nav-links">
+        <li><a href="#shakes">Planes</a></li>
+        <li><a href="#fresh">Beneficios</a></li>
+        <li>
+          <a href="#" class="cart-link"
+            >Pedí el tuyo <i class="fa-solid fa-bag-shopping"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-blob"></div>
+      <div class="hero-blob2"></div>
+
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <div class="dot"></div>
+          <span>MiCvDigital · tu próximo trabajo empieza acá</span>
+        </div>
+        <h1 class="hero-h1">
+          <span class="pink">DESTACÁ.</span><br />
+          <span>CONECTÁ.</span><br />
+          <span class="yellow">CONSEGUÍ.</span>
+        </h1>
+        <p class="hero-sub">
+          Transformá tu CV en tu mejor herramienta: CV profesional + portfolio
+          digital + código QR = más entrevistas.
+        </p>
+
+        <div class="hero-pills">
+          <div class="hero-pill active">📄 ATS Friendly</div>
+          <div class="hero-pill">🎨 Portfolio Web</div>
+          <div class="hero-pill">🔗 QR Dinámico</div>
+          <div class="hero-pill">🌐 Hosting incluido</div>
+          <div class="hero-pill">🤝 +300 RRHH</div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#shakes" class="btn-hero-primary">Ver planes ↓</a>
+          <a href="#fresh" class="btn-hero-secondary">Qué incluye</a>
+        </div>
+
+        <div class="hero-mini-stats">
+          <div class="hms-chip">
+            <div>
+              <div class="hms-val">+280</div>
+              <div class="hms-lbl">entrevistas</div>
+            </div>
+          </div>
+          <div class="hms-chip">
+            <div>
+              <div class="hms-val">100%</div>
+              <div class="hms-lbl">personalización</div>
+            </div>
+          </div>
+          <div class="hms-chip">
+            <div>
+              <div class="hms-val">4.9 ★</div>
+              <div class="hms-lbl">clientes felices</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-img-wrap">
+        <div class="hero-img-ring">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png"
+            alt="CV Digital"
+            id="heroShakeImg"
+          />
+        </div>
+        <div class="hero-badge">🔥 Marca personal</div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">superan filtros ATS</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">+300</div>
+        <div class="stat-label">contactos RRHH verificados</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">soporte + ediciones</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">oportunidades reales</div>
+      </div>
+    </div>
+
+    <!-- SLIDER DE PLANES (con flechas de texto para evitar problemas de íconos) -->
+    <section class="slider-section" id="shakes">
+      <div class="section-header">
+        <h2>ELEGÍ TU<br /><em>HERRAMIENTA</em></h2>
+        <p>
+          Diseños modernos, hosting incluido, QR y acceso a empleadores. El plan
+          que se adapta a tu objetivo.
+        </p>
+      </div>
+
+      <div class="slider-viewport" id="sliderViewport">
+        <div class="slider-track" id="sliderTrack">
+          <!-- Plan 1 -->
+          <div class="shake-card card-coconut">
+            <span class="card-chip">⭐ Esencial</span>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2997/2997925.png"
+              alt="CV ATS"
+              class="card-img"
+            />
+            <div class="card-bottom">
+              <div class="card-name">CV Pro ATS</div>
+              <div class="card-desc">
+                Diseño optimizado para filtros automáticos. Keywords
+                estratégicas, formato editable y plantilla profesional.
+              </div>
+              <div class="card-footer">
+                <div class="card-price">ARS 14.999</div>
+                <button class="card-btn">Consultar +</button>
+              </div>
+            </div>
+          </div>
+          <!-- Plan 2 -->
+          <div class="shake-card card-blueberry">
+            <span class="card-chip">🎯 Top elegido</span>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png"
+              alt="Portfolio Digital"
+              class="card-img"
+            />
+            <div class="card-bottom">
+              <div class="card-name">Portfolio + CV</div>
+              <div class="card-desc">
+                Landing page profesional + CV ATS + Código QR + Hosting 1 año +
+                dominio personalizado o subdominio.
+              </div>
+              <div class="card-footer">
+                <div class="card-price">ARS 34.999</div>
+                <button class="card-btn">Lo quiero +</button>
+              </div>
+            </div>
+          </div>
+          <!-- Plan 3 -->
+          <div class="shake-card card-banana">
+            <span class="card-chip">🚀 Conquista</span>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+              alt="Contactos RRHH"
+              class="card-img"
+            />
+            <div class="card-bottom">
+              <div class="card-name">Full Impacto + RRHH</div>
+              <div class="card-desc">
+                Portfolio + CV ATS + QR + análisis de mercado + hasta 300
+                contactos reales de empresas y reclutadores activos.
+              </div>
+              <div class="card-footer">
+                <div class="card-price">ARS 59.999</div>
+                <button class="card-btn">Más info</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <!-- Flechas con texto plano (siempre visibles) -->
+        <button class="ctrl-btn" id="prevBtn">←</button>
+        <button class="ctrl-btn" id="nextBtn">→</button>
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </section>
+
+    <!-- INGREDIENTS / BENEFICIOS -->
+    <section class="ingredients-section" id="fresh">
+      <div class="section-header" style="max-width: 1000px; margin: 0 auto">
+        <h2>INCLUYE<br /><em>CADA PLAN</em></h2>
+        <p>
+          Tecnología que trabaja para vos: CV ATS, portfolio, QR, hosting y
+          acompañamiento profesional.
+        </p>
+      </div>
+
+      <div class="ingredients-grid">
+        <div class="ing-card c1">
+          <div class="ing-img-wrap">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png"
+              class="ing-img"
+              alt="ATS"
+              style="width: 50px"
+            />
+          </div>
+          <div class="ing-num">01 —</div>
+          <div class="ing-name">CV optimizado ATS</div>
+          <div class="ing-desc">
+            Pasá los filtros automáticos y llegá a Recursos Humanos.
+          </div>
+        </div>
+        <div class="ing-card c2">
+          <div class="ing-img-wrap">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+              class="ing-img"
+              alt="Portfolio"
+              style="width: 50px"
+            />
+          </div>
+          <div class="ing-num">02 —</div>
+          <div class="ing-name">Portfolio digital</div>
+          <div class="ing-desc">
+            Mostrá quién sos, tu experiencia, proyectos y habilidades en una
+            landing page moderna.
+          </div>
+        </div>
+        <div class="ing-card c3">
+          <div class="ing-img-wrap">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1341/1341551.png"
+              class="ing-img"
+              alt="QR"
+              style="width: 50px"
+            />
+          </div>
+          <div class="ing-num">03 —</div>
+          <div class="ing-name">Código QR en tu CV</div>
+          <div class="ing-desc">
+            Acceso directo a tu perfil profesional online desde cualquier
+            dispositivo.
+          </div>
+        </div>
+        <div class="ing-card c4">
+          <div class="ing-img-wrap">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2480/2480351.png"
+              class="ing-img"
+              alt="Hosting"
+              style="width: 50px"
+            />
+          </div>
+          <div class="ing-num">04 —</div>
+          <div class="ing-name">Hosting + dominio</div>
+          <div class="ing-desc">
+            Dominio personalizado o subdominio gratuito incluido.
+          </div>
+        </div>
+        <div class="ing-card c5">
+          <div class="ing-img-wrap">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1995/1995572.png"
+              class="ing-img"
+              alt="Soporte"
+              style="width: 50px"
+            />
+          </div>
+          <div class="ing-num">05 —</div>
+          <div class="ing-name">Soporte y ediciones</div>
+          <div class="ing-desc">
+            Te acompañamos en todo el proceso con actualizaciones y cambios.
+          </div>
+        </div>
+        <div
+          class="ing-card c6"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 36px;
+          "
+        >
+          <div
+            style="
+              font-family: &quot;Permanent Marker&quot;, cursive;
+              font-size: 1.3rem;
+              color: var(--cream);
+              margin-bottom: 12px;
+            "
+          >
+            +300 CONTACTOS<br />RRHH verificados 🔥
+          </div>
+          <a
+            href="#shakes"
+            style="
+              color: var(--hot-pink);
+              font-size: 0.72rem;
+              letter-spacing: 0.15em;
+              text-decoration: none;
+              text-transform: uppercase;
+              border-bottom: 1px solid var(--hot-pink);
+              padding-bottom: 2px;
+            "
+            >Descubrí más →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- LIFESTYLE / MARCA PERSONAL -->
+    <section class="lifestyle">
+      <div class="lifestyle-inner">
+        <div class="lifestyle-img-wrap">
+          <div class="lifestyle-img-frame">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/9242/9242973.png"
+              alt="Marca personal"
+            />
+          </div>
+          <div class="ls-badge">Marca personal ✓</div>
+        </div>
+        <div class="lifestyle-content">
+          <div class="ls-kicker">MÁS QUE UN CV, ES TU MARCA PERSONAL</div>
+          <h2 class="ls-title">DESTACATE.<br />TRANSMITÍ.<br />AUMENTÁ.</h2>
+          <p class="ls-copy">
+            Destacate del resto de candidatos, transmití profesionalismo y
+            confianza. Aumentá tus chances de conseguir entrevistas con un
+            ecosistema digital completo.
+          </p>
+          <ul class="ls-features">
+            <li>
+              <div class="ls-dot"></div>
+              <strong>Proceso rápido</strong> — Listo en 72hs
+            </li>
+            <li>
+              <div class="ls-dot"></div>
+              <strong>Profesional</strong> — Diseñado por especialistas
+            </li>
+            <li>
+              <div class="ls-dot"></div>
+              <strong>Contacto directo</strong> — Conexión con RRHH
+            </li>
+          </ul>
+          <div class="ls-btns">
+            <a href="#shakes" class="ls-btn-p">Ver planes</a>
+            <a href="#fresh" class="ls-btn-s">Ver beneficios</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER + CTA -->
+    <section class="newsletter">
+      <div class="newsletter-inner">
+        <div class="nl-left">
+          <div class="nl-tag">🥤 Inversión inteligente</div>
+          <h2>¡PEDÍ EL<br />TUYO HOY!<br />SLAY.</h2>
+          <div class="nl-proof">
+            <div class="nl-avatars">
+              <div class="nl-avatar av1">L</div>
+              <div class="nl-avatar av2">M</div>
+              <div class="nl-avatar av3">C</div>
+              <div class="nl-avatar av4">J</div>
+            </div>
+            <div class="nl-proof-text">
+              <strong>+380 profesionales</strong> ya potenciaron su búsqueda
+              laboral
+            </div>
+          </div>
+        </div>
+        <div class="nl-right">
+          <div class="nl-perks">
+            <div class="nl-perk">
+              <div class="nl-perk-icon">🎁</div>
+              <span>10% off en tu primer servicio — código: CV10</span>
+            </div>
+            <div class="nl-perk">
+              <div class="nl-perk-icon">🔥</div>
+              <span>Actualizaciones trimestrales sin costo extra</span>
+            </div>
+            <div class="nl-perk">
+              <div class="nl-perk-icon">🚫</div>
+              <span>Sin permanencia. Pagá solo cuando estés conforme.</span>
+            </div>
+          </div>
+          <div class="nl-form">
+            <input
+              type="email"
+              class="nl-input"
+              placeholder="tu@mejorcorreo.com"
+            />
+            <button class="nl-btn">QUIERO MI CV ↗</button>
+          </div>
+          <p style="font-size: 0.75rem; margin-top: 1rem">
+            📞 11 1234-5678 | ✉️ hola@micvdigital.com | @micvdigital
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-logo-wrap">
+          <a href="#" class="footer-logo-text">MiCvDigital 🚀</a>
+          <span class="footer-dev-label">CV · Portfolio · RRHH</span>
+        </div>
+        <div class="footer-links">
+          <a href="#">Aviso legal</a>
+          <a href="#">Política de datos</a>
+          <a href="#">© 2026</a>
+        </div>
+        <div class="footer-contact">
+          <a
+            href="https://wa.me/541112345678"
+            class="footer-contact-btn btn-codepen"
+            title="WhatsApp"
+            target="_blank"
+            rel="noopener"
+            ><i class="fa-brands fa-whatsapp"></i> WhatsApp</a
+          >
+          <a
+            href="mailto:hola@micvdigital.com"
+            class="footer-contact-btn btn-email"
+            title="Email"
+            ><i class="fa-regular fa-envelope"></i> hola@micvdigital.com</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Tu JS externo (mantiene la funcionalidad del slider y demás) -->
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
