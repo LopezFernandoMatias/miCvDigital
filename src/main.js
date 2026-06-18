@@ -151,3 +151,70 @@ heroImg.addEventListener("click", () =>
 pills.forEach((pill, i) =>
   pill.addEventListener("click", () => switchFlavor(i)),
 );
+function animateCounter(el, end, duration = 9000) {
+  const isPercent = el.dataset.type === "percent";
+  const isPlus = el.dataset.type === "plus";
+  const isDecimal = el.dataset.type === "decimal";
+  const suffix = el.dataset.suffix || "";
+
+  const startTime = performance.now();
+
+  function update(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+
+    let current;
+
+    if (isDecimal) {
+      current = (progress * end).toFixed(1);
+    } else {
+      current = Math.floor(progress * end);
+    }
+
+    let text = "";
+
+    if (isPlus) text += "+";
+
+    text += current;
+
+    if (isPercent) text += "%";
+
+    text += suffix;
+
+    el.textContent = text;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+
+      if (el.dataset.animated) return;
+
+      el.dataset.animated = "true";
+
+      animateCounter(
+        el,
+        Number(el.dataset.count),
+        Number(el.dataset.duration || 9000)
+      );
+
+      observer.unobserve(el);
+    });
+  },
+  {
+    threshold: 0.4,
+  }
+);
+
+document
+  .querySelectorAll("[data-count]")
+  .forEach((el) => observer.observe(el));
