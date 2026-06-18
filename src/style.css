@@ -753,7 +753,7 @@ nav {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0;
+  width: 0; 
   height: 2px;
   transition: width 0.4s;
 }
@@ -783,7 +783,7 @@ nav {
   position: absolute;
   top: -60px;
   left: 20px;
-  width: 120%;
+  width: calc(100% - 20px);
   height: 120px;
   z-index: 5;
   pointer-events: none;
