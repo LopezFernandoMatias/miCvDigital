@@ -1430,3 +1430,26 @@ footer {
     justify-content: center;
   }
 }
+
+@media (max-width: 1024px) {
+  .cursor {
+    display: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+
+  body,
+  a,
+  button,
+  .shake-card,
+  .ing-card,
+  .hero-pill,
+  .card-btn,
+  .ctrl-btn {
+    cursor: auto !important;
+  }
+}
