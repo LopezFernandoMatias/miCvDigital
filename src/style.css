@@ -753,7 +753,7 @@ nav {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0; 
+  width: 0;
   height: 2px;
   transition: width 0.4s;
 }
@@ -1417,4 +1417,11 @@ footer {
     width: 100%;
     justify-content: center;
   }
+  @media (max-width: 480px) {
+  .card-img {
+    height: 180px;
+    top: -40px;
+    right: 10px;
+  }
+}
 }
