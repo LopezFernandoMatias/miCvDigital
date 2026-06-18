@@ -127,11 +127,11 @@ window.addEventListener("resize", () => goTo(current));
 const heroImg = document.getElementById("heroShakeImg");
 const pills = document.querySelectorAll(".hero-pill");
 const shakeImgs = [
-  "https://rassweiler-it.de/images/codepen/codepen_shake_strawberry.png",
-  "https://rassweiler-it.de/images/codepen/codepen_shake_1.png",
-  "https://rassweiler-it.de/images/codepen/codepen_shake_2.png",
-  "https://rassweiler-it.de/images/codepen/codepen_shake_3.png",
-  "https://rassweiler-it.de/images/codepen/codepen_shake_4.png",
+  "https://i.postimg.cc/DZXj1tCm/ATS-Friendly-(1).png",
+  "https://i.postimg.cc/fRvKg38k/pc-Table-Telfono-SIn-FOndo-(1).png",
+  "https://i.postimg.cc/2jHGVjjd/QR-Dinamico-(1).png",
+  "https://i.postimg.cc/0QV4kpHL/Hosting-incluido.png",
+  "https://i.postimg.cc/mgGW6Sxt/300-RRHH.png",
 ];
 let heroIdx = 0;
 
@@ -204,7 +204,7 @@ const observer = new IntersectionObserver(
       animateCounter(
         el,
         Number(el.dataset.count),
-        Number(el.dataset.duration || 9000)
+        Number(el.dataset.duration || 9000),
       );
 
       observer.unobserve(el);
@@ -212,9 +212,7 @@ const observer = new IntersectionObserver(
   },
   {
     threshold: 0.4,
-  }
+  },
 );
 
-document
-  .querySelectorAll("[data-count]")
-  .forEach((el) => observer.observe(el));
+document.querySelectorAll("[data-count]").forEach((el) => observer.observe(el));
