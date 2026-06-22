@@ -539,15 +539,15 @@ nav {
 
 .card-coconut {
   background: linear-gradient(160deg, #323230, #252523);
-  border: 1px solid rgba(211, 212, 207, 0.2);
+  border: 2px solid rgba(211, 212, 207, 0.2);
 }
 .card-blueberry {
   background: linear-gradient(160deg, #251f48, #1a1535);
-  border: 1px solid rgba(127, 104, 236, 0.3);
+  border: 2px solid rgba(127, 104, 236, 0.3);
 }
 .card-banana {
   background: linear-gradient(160deg, #352b00, #271f00);
-  border: 1px solid rgba(250, 200, 87, 0.3);
+  border: 2px solid rgba(250, 181, 6, 0.871);
 }
 .card-grapefruit {
   background: linear-gradient(160deg, #38110d, #2a0a07);
@@ -556,6 +556,10 @@ nav {
 .card-strawberry {
   background: linear-gradient(160deg, #38001e, #280015);
   border: 1px solid rgba(242, 125, 154, 0.35);
+}
+
+.card-blueberry .card-chip {
+  color: #f87bee;
 }
 
 .card-img {
