@@ -44,6 +44,15 @@ html {
   transform-style: preserve-3d;
 }
 
+.carousel-track {
+  pointer-events: none;
+}
+
+.nav {
+  position: relative;
+  z-index: 999;
+}
+
 .card {
   position: absolute;
   inset: 0;
@@ -98,4 +107,33 @@ p,
 button {
   font-family: "Poppins", sans-serif;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --card-w: 140px;
+    --card-h: 210px;
+    --radius: 500px;
+  }
+
+  .carousel-track {
+    top: 10%;
+  }
+
+  .content {
+    width: 90%;
+    margin-top: 300px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+.carousel-track {
+  touch-action: none;
 }

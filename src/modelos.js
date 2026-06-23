@@ -78,3 +78,27 @@ window.addEventListener("wheel", (e) => {
   lastScroll = Date.now();
   move(e.deltaY > 0 ? 1 : -1);
 });
+
+document.getElementById("prevBtn").addEventListener("click", () => move(-1));
+document.getElementById("nextBtn").addEventListener("click", () => move(1));
+
+let startX = 0;
+let endX = 0;
+
+track.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", (e) => {
+  endX = e.changedTouches[0].clientX;
+
+  const diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      move(1); // izquierda
+    } else {
+      move(-1); // derecha
+    }
+  }
+});
