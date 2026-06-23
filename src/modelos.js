@@ -118,7 +118,7 @@ track.addEventListener(
     startY = e.touches[0].clientY;
     isDragging = true;
   },
-  { passive: true }
+  { passive: true },
 );
 
 track.addEventListener(
@@ -135,7 +135,7 @@ track.addEventListener(
       e.preventDefault();
     }
   },
-  { passive: false }
+  { passive: false },
 );
 
 track.addEventListener(
@@ -158,5 +158,13 @@ track.addEventListener(
 
     isDragging = false;
   },
-  { passive: true }
+  { passive: true },
 );
+
+document
+  .querySelector(".nav button:first-child")
+  .addEventListener("click", () => move(-1));
+
+document
+  .querySelector(".nav button:last-child")
+  .addEventListener("click", () => move(1));
