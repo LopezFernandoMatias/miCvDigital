@@ -32,10 +32,6 @@ const imgUrls = [
 let currentIndex = Math.floor(imgUrls.length / 2);
 const angleStep = 22;
 
-// =====================
-// Crear tarjetas
-// =====================
-
 imgUrls.forEach((url) => {
   const card = document.createElement("div");
   card.className = "card";
@@ -45,128 +41,78 @@ imgUrls.forEach((url) => {
 
 const cards = document.querySelectorAll(".card");
 
-// =====================
-// Render
-// =====================
-
 function updateCards() {
   cards.forEach((card, i) => {
     let diff = i - currentIndex;
 
-    if (diff > imgUrls.length / 2) {
-      diff -= imgUrls.length;
-    }
+    if (diff > imgUrls.length / 2) diff -= imgUrls.length;
+    if (diff < -imgUrls.length / 2) diff += imgUrls.length;
 
-    if (diff < -imgUrls.length / 2) {
-      diff += imgUrls.length;
-    }
+    const isActive = i === currentIndex;
+    const scaleFactor = isActive ? 1.1 : 0.8;
 
-    card.style.transform = `rotate(${diff * angleStep}deg)`;
+    // ✅ FIX PRINCIPAL: rotate y scale en un solo transform atómico
+    // Antes: rotate() en transform + scale como propiedad CSS separada
+    // → el browser los componía en pasos distintos → flash/glitch
+    card.style.transform = `rotate(${diff * angleStep}deg) scale(${scaleFactor})`;
 
-    card.classList.toggle("active", i === currentIndex);
+    card.classList.toggle("active", isActive);
   });
 }
 
-// =====================
-// Carrusel infinito
-// =====================
-
 function move(dir) {
   currentIndex = (currentIndex + dir + imgUrls.length) % imgUrls.length;
-
   updateCards();
 }
 
-// =====================
-// Inicializar
-// =====================
-
 updateCards();
 
-// =====================
-// Mouse Wheel
-// =====================
-
+// Wheel
 let lastScroll = 0;
-
 window.addEventListener("wheel", (e) => {
   if (Date.now() - lastScroll < 400) return;
-
   lastScroll = Date.now();
-
   move(e.deltaY > 0 ? 1 : -1);
 });
 
-// =====================
 // Botones
-// =====================
-
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+if (prevBtn) prevBtn.addEventListener("click", () => move(-1));
+if (nextBtn) nextBtn.addEventListener("click", () => move(1));
 
-if (prevBtn) {
-  prevBtn.addEventListener("click", () => move(-1));
-}
-
-if (nextBtn) {
-  nextBtn.addEventListener("click", () => move(1));
-}
-
-// =====================
-// Swipe táctil
-// =====================
-
+// Touch
 let touchStartX = 0;
-
 track.addEventListener("touchstart", (e) => {
   touchStartX = e.touches[0].clientX;
 });
-
 track.addEventListener("touchend", (e) => {
-  const touchEndX = e.changedTouches[0].clientX;
-
-  const diff = touchStartX - touchEndX;
-
-  if (Math.abs(diff) > 50) {
-    move(diff > 0 ? 1 : -1);
-  }
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) move(diff > 0 ? 1 : -1);
 });
 
-// =====================
-// Drag con mouse
-// =====================
-
+// Drag mouse
 let mouseStartX = 0;
 let dragging = false;
-
 track.addEventListener("mousedown", (e) => {
   dragging = true;
   mouseStartX = e.clientX;
 });
-
 window.addEventListener("mouseup", (e) => {
   if (!dragging) return;
-
   dragging = false;
-
   const diff = mouseStartX - e.clientX;
-
-  if (Math.abs(diff) > 50) {
-    move(diff > 0 ? 1 : -1);
-  }
+  if (Math.abs(diff) > 50) move(diff > 0 ? 1 : -1);
 });
 
+// Device orientation
 if (window.DeviceOrientationEvent) {
   window.addEventListener("deviceorientation", (event) => {
     const beta = event.beta || 0;
     const gamma = event.gamma || 0;
-
     cards.forEach((card) => {
-      const x = gamma * 0.5;
-      const y = beta * 0.2;
-
-      card.style.setProperty("--rx", `${-y}deg`);
-      card.style.setProperty("--ry", `${x}deg`);
+      card.style.setProperty("--rx", `${-(beta * 0.2)}deg`);
+      card.style.setProperty("--ry", `${gamma * 0.5}deg`);
     });
   });
 }
