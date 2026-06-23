@@ -102,3 +102,61 @@ track.addEventListener("touchend", (e) => {
     }
   }
 });
+
+// =====================
+// Swipe táctil
+// =====================
+
+let startX = 0;
+let startY = 0;
+let isDragging = false;
+
+track.addEventListener(
+  "touchstart",
+  (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isDragging = true;
+  },
+  { passive: true }
+);
+
+track.addEventListener(
+  "touchmove",
+  (e) => {
+    if (!isDragging) return;
+
+    const deltaX = Math.abs(e.touches[0].clientX - startX);
+    const deltaY = Math.abs(e.touches[0].clientY - startY);
+
+    // Si el gesto es más horizontal que vertical,
+    // evitamos que la página interfiera.
+    if (deltaX > deltaY) {
+      e.preventDefault();
+    }
+  },
+  { passive: false }
+);
+
+track.addEventListener(
+  "touchend",
+  (e) => {
+    if (!isDragging) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    const threshold = 50; // mínimo desplazamiento
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        move(1); // swipe izquierda
+      } else {
+        move(-1); // swipe derecha
+      }
+    }
+
+    isDragging = false;
+  },
+  { passive: true }
+);
