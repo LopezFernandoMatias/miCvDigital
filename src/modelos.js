@@ -30,27 +30,24 @@ const imgUrls = [
 ];
 
 let currentIndex = Math.floor(imgUrls.length / 2);
-
 const angleStep = 22;
 
-// =========================
+// =====================
 // Crear tarjetas
-// =========================
+// =====================
 
 imgUrls.forEach((url) => {
   const card = document.createElement("div");
-
   card.className = "card";
   card.style.backgroundImage = `url(${url})`;
-
   track.appendChild(card);
 });
 
-const cards = [...document.querySelectorAll(".card")];
+const cards = document.querySelectorAll(".card");
 
-// =========================
+// =====================
 // Render
-// =========================
+// =====================
 
 function updateCards() {
   cards.forEach((card, i) => {
@@ -64,22 +61,15 @@ function updateCards() {
       diff += imgUrls.length;
     }
 
-    const isActive = i === currentIndex;
+    card.style.transform = `rotate(${diff * angleStep}deg)`;
 
-    card.style.transform = `
-      rotate(${diff * angleStep}deg)
-      rotateX(var(--rx))
-      rotateY(var(--ry))
-      translateZ(${isActive ? 60 : 0}px)
-    `;
-
-    card.classList.toggle("active", isActive);
+    card.classList.toggle("active", i === currentIndex);
   });
 }
 
-// =========================
+// =====================
 // Carrusel infinito
-// =========================
+// =====================
 
 function move(dir) {
   currentIndex = (currentIndex + dir + imgUrls.length) % imgUrls.length;
@@ -87,37 +77,44 @@ function move(dir) {
   updateCards();
 }
 
-// =========================
+// =====================
 // Inicializar
-// =========================
+// =====================
 
 updateCards();
 
-// =========================
+// =====================
 // Mouse Wheel
-// =========================
+// =====================
 
 let lastScroll = 0;
 
 window.addEventListener("wheel", (e) => {
-  if (Date.now() - lastScroll < 350) return;
+  if (Date.now() - lastScroll < 400) return;
 
   lastScroll = Date.now();
 
   move(e.deltaY > 0 ? 1 : -1);
 });
 
-// =========================
+// =====================
 // Botones
-// =========================
+// =====================
 
-document.getElementById("prevBtn")?.addEventListener("click", () => move(-1));
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-document.getElementById("nextBtn")?.addEventListener("click", () => move(1));
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => move(-1));
+}
 
-// =========================
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => move(1));
+}
+
+// =====================
 // Swipe táctil
-// =========================
+// =====================
 
 let touchStartX = 0;
 
@@ -135,12 +132,12 @@ track.addEventListener("touchend", (e) => {
   }
 });
 
-// =========================
+// =====================
 // Drag con mouse
-// =========================
+// =====================
 
-let dragging = false;
 let mouseStartX = 0;
+let dragging = false;
 
 track.addEventListener("mousedown", (e) => {
   dragging = true;
@@ -159,66 +156,17 @@ window.addEventListener("mouseup", (e) => {
   }
 });
 
-// =========================
-// Parallax 3D por mouse
-// =========================
+if (window.DeviceOrientationEvent) {
+  window.addEventListener("deviceorientation", (event) => {
+    const beta = event.beta || 0;
+    const gamma = event.gamma || 0;
 
-document.addEventListener("mousemove", (e) => {
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
+    cards.forEach((card) => {
+      const x = gamma * 0.5;
+      const y = beta * 0.2;
 
-  const offsetX = (e.clientX - centerX) / centerX;
-  const offsetY = (e.clientY - centerY) / centerY;
-
-  cards.forEach((card) => {
-    card.style.setProperty("--rx", `${offsetY * -8}deg`);
-
-    card.style.setProperty("--ry", `${offsetX * 8}deg`);
-
-    card.style.setProperty("--shine-x", `${50 + offsetX * 40}%`);
-
-    card.style.setProperty("--shine-y", `${50 + offsetY * 40}%`);
+      card.style.setProperty("--rx", `${-y}deg`);
+      card.style.setProperty("--ry", `${x}deg`);
+    });
   });
-});
-
-// =========================
-// Inclinación del teléfono
-// =========================
-
-if ("DeviceOrientationEvent" in window) {
-  let currentRX = 0;
-  let currentRY = 0;
-
-  window.addEventListener(
-    "deviceorientation",
-    (event) => {
-      const beta = event.beta || 0;
-      const gamma = event.gamma || 0;
-
-      const targetRX = -beta * 0.15;
-      const targetRY = gamma * 0.35;
-
-      currentRX += (targetRX - currentRX) * 0.15;
-      currentRY += (targetRY - currentRY) * 0.15;
-
-      cards.forEach((card) => {
-        card.style.setProperty("--rx", `${currentRX}deg`);
-
-        card.style.setProperty("--ry", `${currentRY}deg`);
-
-        card.style.setProperty("--shine-x", `${50 + gamma}%`);
-
-        card.style.setProperty("--shine-y", `${50 + beta * 0.5}%`);
-      });
-    },
-    true,
-  );
 }
-
-// =========================
-// Autoplay opcional
-// =========================
-
-// setInterval(() => {
-//   move(1);
-// }, 4000);

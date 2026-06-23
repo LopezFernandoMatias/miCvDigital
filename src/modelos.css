@@ -51,8 +51,7 @@ button {
   justify-content: center;
   align-items: center;
 
-  perspective: 2500px;
-  overflow: visible;
+  perspective: 2000px;
 }
 
 /* =========================
@@ -67,51 +66,37 @@ button {
   height: var(--card-h);
 
   transform-style: preserve-3d;
+
+  /* Permite swipe horizontal */
   touch-action: pan-y;
 }
 
-/* =========================
-   Tarjetas
-========================= */
-
 .card {
-  --rx: 0deg;
-  --ry: 0deg;
-
-  --shine-x: 30%;
-  --shine-y: 30%;
-
   position: absolute;
   inset: 0;
 
   border-radius: 30px;
-  overflow: visible;
+  overflow: hidden;
 
   background-size: cover;
   background-position: center;
 
   transform-origin: 50% var(--radius);
-  transform-style: preserve-3d;
 
   transition:
     transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
     filter 0.8s,
-    scale 0.8s,
-    box-shadow 0.8s;
+    scale 0.8s;
 
   filter: brightness(0.5);
   scale: 0.8;
 
   box-shadow:
-    0 15px 25px rgba(0, 0, 0, 0.4),
-    0 35px 60px rgba(0, 0, 0, 0.35);
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 10px 20px rgba(0, 0, 0, 0.3);
 
-  will-change: transform;
+  transform-style: preserve-3d;
 }
-
-/* =========================
-   Brillo dinámico
-========================= */
 
 .card::before {
   content: "";
@@ -119,33 +104,18 @@ button {
   position: absolute;
   inset: 0;
 
-  border-radius: inherit;
-
-  background: radial-gradient(
-    circle at var(--shine-x) var(--shine-y),
-    rgba(255, 255, 255, 0.55),
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.45) 0%,
     rgba(255, 255, 255, 0.15) 20%,
-    transparent 45%
+    rgba(255, 255, 255, 0) 50%
   );
 
-  mix-blend-mode: screen;
-
-  opacity: 0.8;
-
   pointer-events: none;
-}
 
-/* =========================
-   Reflejo de vidrio
-========================= */
+  opacity: 0.6;
 
-.card .glass,
-.card::marker {
-  display: none;
-}
-
-.card::selection {
-  background: transparent;
+  transition: transform 0.2s linear;
 }
 
 .card::after {
@@ -153,74 +123,27 @@ button {
 
   position: absolute;
 
-  top: 0;
   left: 0;
+  top: 100%;
 
   width: 100%;
   height: 100%;
 
-  border-radius: inherit;
+  background: inherit;
 
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.35) 0%,
-    rgba(255, 255, 255, 0.1) 20%,
-    rgba(255, 255, 255, 0) 50%
-  );
+  transform: scaleY(-1);
 
-  pointer-events: none;
-}
+  opacity: 0.2;
 
-/* =========================
-   Reflejo inferior
-========================= */
+  filter: blur(3px);
 
-.card-reflection {
-  display: none;
-}
-
-.card > .reflection {
-  display: none;
-}
-
-/* Reflexión creada con pseudo-elemento */
-
-.card .fake-reflection {
-  display: none;
-}
-
-.card::backdrop {
-  display: none;
-}
-
-/* Reflejo */
-
-.card::before,
-.card::after {
-  backface-visibility: hidden;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
 }
 
 .card.active {
-  filter: brightness(1.15);
-
-  scale: 1.15;
-
-  z-index: 100;
-
-  box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.45),
-    0 60px 120px rgba(0, 0, 0, 0.45),
-    0 0 30px rgba(255, 255, 255, 0.15);
-}
-
-/* =========================
-   Glow detrás
-========================= */
-
-.card.active::after {
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.3),
-    0 0 30px rgba(255, 255, 255, 0.2);
+  filter: brightness(1);
+  scale: 1.1;
+  z-index: 10;
 }
 
 /* =========================
@@ -239,16 +162,6 @@ button {
   text-align: center;
 
   margin-top: 380px;
-}
-
-.content h1 {
-  text-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-.content p {
-  opacity: 0.85;
 }
 
 /* =========================
@@ -271,29 +184,21 @@ button {
   width: 50px;
   height: 50px;
 
+  border: 1px solid white;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
 
-  background: rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(10px);
-
+  background: transparent;
   color: white;
 
   cursor: pointer;
 
   transition:
-    transform 0.3s,
     background 0.3s,
-    box-shadow 0.3s;
+    transform 0.3s;
 }
 
 .nav button:hover {
-  transform: scale(1.12);
-
-  background: rgba(255, 255, 255, 0.15);
-
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
 }
 
 /* =========================
