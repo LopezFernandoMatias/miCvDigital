@@ -134,9 +134,9 @@ button {
   }
 }
 
-.carousel-track {
+/*.carousel-track {
   touch-action: none;
-}
+}*/
 .carousel-track {
   touch-action: pan-y;
 }
