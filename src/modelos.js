@@ -1,6 +1,7 @@
 import "./modelos.css";
 
 const track = document.getElementById("track");
+
 const imgUrls = [
   "https://i.postimg.cc/7Zws8Kp5/1.webp",
   "https://i.postimg.cc/g2sMYvWN/2.webp",
@@ -9,7 +10,6 @@ const imgUrls = [
   "https://i.postimg.cc/VLBgRjdm/5.webp",
   "https://i.postimg.cc/vHc87vP6/6.webp",
   "https://i.postimg.cc/wjqVb7mJ/7.webp",
-
   "https://i.postimg.cc/k5Dyqzwg/8.webp",
   "https://i.postimg.cc/jdm8CswJ/portada.png",
   "https://i.postimg.cc/NFv88MtK/10.webp",
@@ -17,7 +17,6 @@ const imgUrls = [
   "https://i.postimg.cc/q7t29nMt/12.webp",
   "https://i.postimg.cc/FzxSjVG6/13.webp",
   "https://i.postimg.cc/J4PJ0KsD/14.webp",
-
   "https://i.postimg.cc/MpLQbTbz/15.webp",
   "https://i.postimg.cc/9fqqxhJZ/16.webp",
   "https://i.postimg.cc/vTGgH6Mt/17.webp",
@@ -25,146 +24,201 @@ const imgUrls = [
   "https://i.postimg.cc/g21xL7mJ/19.webp",
   "https://i.postimg.cc/CKDzG4x4/20.webp",
   "https://i.postimg.cc/nzJM0Qsf/21.webp",
-
   "https://i.postimg.cc/85mc3PWJ/22.webp",
   "https://i.postimg.cc/pr0TWGsP/23.webp",
   "https://i.postimg.cc/pXTrGvdr/24.webp",
 ];
 
 let currentIndex = Math.floor(imgUrls.length / 2);
-const angleStep = 22; // Distance between cards in degrees
 
-// Initialize Cards
-imgUrls.forEach((url, i) => {
+const angleStep = 22;
+
+// =========================
+// Crear tarjetas
+// =========================
+
+imgUrls.forEach((url) => {
   const card = document.createElement("div");
+
   card.className = "card";
   card.style.backgroundImage = `url(${url})`;
+
   track.appendChild(card);
 });
 
-const cards = document.querySelectorAll(".card");
+const cards = [...document.querySelectorAll(".card")];
+
+// =========================
+// Render
+// =========================
 
 function updateCards() {
   cards.forEach((card, i) => {
-    // Calculate the rotation for THIS card based on the current center index
-    const cardRotation = (i - currentIndex) * angleStep;
+    let diff = i - currentIndex;
 
-    card.style.transform = `rotate(${cardRotation}deg)`;
-
-    // Toggle active classes
-    if (i === currentIndex) {
-      card.classList.add("active");
-    } else {
-      card.classList.remove("active");
+    if (diff > imgUrls.length / 2) {
+      diff -= imgUrls.length;
     }
+
+    if (diff < -imgUrls.length / 2) {
+      diff += imgUrls.length;
+    }
+
+    const isActive = i === currentIndex;
+
+    card.style.transform = `
+      rotate(${diff * angleStep}deg)
+      rotateX(var(--rx))
+      rotateY(var(--ry))
+      translateZ(${isActive ? 60 : 0}px)
+    `;
+
+    card.classList.toggle("active", isActive);
   });
 }
 
+// =========================
+// Carrusel infinito
+// =========================
+
 function move(dir) {
-  const newIndex = currentIndex + dir;
-  if (newIndex >= 0 && newIndex < imgUrls.length) {
-    currentIndex = newIndex;
-    updateCards();
-  }
+  currentIndex = (currentIndex + dir + imgUrls.length) % imgUrls.length;
+
+  updateCards();
 }
 
-// Run on load
+// =========================
+// Inicializar
+// =========================
+
 updateCards();
 
+// =========================
 // Mouse Wheel
+// =========================
+
 let lastScroll = 0;
+
 window.addEventListener("wheel", (e) => {
-  if (Date.now() - lastScroll < 600) return;
+  if (Date.now() - lastScroll < 350) return;
+
   lastScroll = Date.now();
+
   move(e.deltaY > 0 ? 1 : -1);
 });
 
-document.getElementById("prevBtn").addEventListener("click", () => move(-1));
-document.getElementById("nextBtn").addEventListener("click", () => move(1));
+// =========================
+// Botones
+// =========================
 
-let startX = 0;
-let endX = 0;
+document.getElementById("prevBtn")?.addEventListener("click", () => move(-1));
+
+document.getElementById("nextBtn")?.addEventListener("click", () => move(1));
+
+// =========================
+// Swipe táctil
+// =========================
+
+let touchStartX = 0;
 
 track.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
+  touchStartX = e.touches[0].clientX;
 });
 
 track.addEventListener("touchend", (e) => {
-  endX = e.changedTouches[0].clientX;
+  const touchEndX = e.changedTouches[0].clientX;
 
-  const diff = startX - endX;
+  const diff = touchStartX - touchEndX;
 
   if (Math.abs(diff) > 50) {
-    if (diff > 0) {
-      move(1); // izquierda
-    } else {
-      move(-1); // derecha
-    }
+    move(diff > 0 ? 1 : -1);
   }
 });
 
-// =====================
-// Swipe táctil
-// =====================
+// =========================
+// Drag con mouse
+// =========================
 
-let startX = 0;
-let startY = 0;
-let isDragging = false;
+let dragging = false;
+let mouseStartX = 0;
 
-track.addEventListener(
-  "touchstart",
-  (e) => {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    isDragging = true;
-  },
-  { passive: true },
-);
+track.addEventListener("mousedown", (e) => {
+  dragging = true;
+  mouseStartX = e.clientX;
+});
 
-track.addEventListener(
-  "touchmove",
-  (e) => {
-    if (!isDragging) return;
+window.addEventListener("mouseup", (e) => {
+  if (!dragging) return;
 
-    const deltaX = Math.abs(e.touches[0].clientX - startX);
-    const deltaY = Math.abs(e.touches[0].clientY - startY);
+  dragging = false;
 
-    // Si el gesto es más horizontal que vertical,
-    // evitamos que la página interfiera.
-    if (deltaX > deltaY) {
-      e.preventDefault();
-    }
-  },
-  { passive: false },
-);
+  const diff = mouseStartX - e.clientX;
 
-track.addEventListener(
-  "touchend",
-  (e) => {
-    if (!isDragging) return;
+  if (Math.abs(diff) > 50) {
+    move(diff > 0 ? 1 : -1);
+  }
+});
 
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
+// =========================
+// Parallax 3D por mouse
+// =========================
 
-    const threshold = 50; // mínimo desplazamiento
+document.addEventListener("mousemove", (e) => {
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
 
-    if (Math.abs(diff) > threshold) {
-      if (diff > 0) {
-        move(1); // swipe izquierda
-      } else {
-        move(-1); // swipe derecha
-      }
-    }
+  const offsetX = (e.clientX - centerX) / centerX;
+  const offsetY = (e.clientY - centerY) / centerY;
 
-    isDragging = false;
-  },
-  { passive: true },
-);
+  cards.forEach((card) => {
+    card.style.setProperty("--rx", `${offsetY * -8}deg`);
 
-document
-  .querySelector(".nav button:first-child")
-  .addEventListener("click", () => move(-1));
+    card.style.setProperty("--ry", `${offsetX * 8}deg`);
 
-document
-  .querySelector(".nav button:last-child")
-  .addEventListener("click", () => move(1));
+    card.style.setProperty("--shine-x", `${50 + offsetX * 40}%`);
+
+    card.style.setProperty("--shine-y", `${50 + offsetY * 40}%`);
+  });
+});
+
+// =========================
+// Inclinación del teléfono
+// =========================
+
+if ("DeviceOrientationEvent" in window) {
+  let currentRX = 0;
+  let currentRY = 0;
+
+  window.addEventListener(
+    "deviceorientation",
+    (event) => {
+      const beta = event.beta || 0;
+      const gamma = event.gamma || 0;
+
+      const targetRX = -beta * 0.15;
+      const targetRY = gamma * 0.35;
+
+      currentRX += (targetRX - currentRX) * 0.15;
+      currentRY += (targetRY - currentRY) * 0.15;
+
+      cards.forEach((card) => {
+        card.style.setProperty("--rx", `${currentRX}deg`);
+
+        card.style.setProperty("--ry", `${currentRY}deg`);
+
+        card.style.setProperty("--shine-x", `${50 + gamma}%`);
+
+        card.style.setProperty("--shine-y", `${50 + beta * 0.5}%`);
+      });
+    },
+    true,
+  );
+}
+
+// =========================
+// Autoplay opcional
+// =========================
+
+// setInterval(() => {
+//   move(1);
+// }, 4000);
