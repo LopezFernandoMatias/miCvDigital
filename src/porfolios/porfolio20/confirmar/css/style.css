@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Se actualiza el body para organizar los elementos en columna */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #0d0827;
+  overflow: hidden; /* Para evitar scroll */
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* El canvas queda detrás de las tarjetas */
+}
+
+/* Contenedor de tarjetas para separarlas verticalmente */
+.cards-container {
+  z-index: 2; /* Asegura que las tarjetas estén sobre el canvas */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Estilos comunes para las tarjetas */
+.card {
+  width: 300px;
+  height: auto;
+  background: #1a1530;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Estilos para el contenido de las tarjetas */
+.card .content h2 {
+  color: #f0f0f5;
+  font-size: 24px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Estilos para la grilla del recibo */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.grid .label {
+  color: #f0f0f5;
+  font-size: 16px;
+  text-align: left;
+}
+
+.grid .value {
+  color: #d0d0d5;
+  font-size: 16px;
+  text-align: right;
+}
+
+/* Línea divisoria que ocupa ambas columnas */
+.grid .line {
+  grid-column: 1 / -1;
+  border-bottom: 1px solid #ccc;
+  margin: 5px 0;
+}
+
+/* Resalta el total */
+.grid .total {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Aplica solo a la tarjeta de "Confirmar" */
+.card:last-child {
+  background: url("https://i.postimg.cc/WbSJ3B1d/mercado-Pago2.png") no-repeat center center;
+  background-size: cover;
+}
+
+/* Quitar subrayado del hipervínculo */
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+

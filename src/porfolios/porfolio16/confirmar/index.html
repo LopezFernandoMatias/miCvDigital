@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumen</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/x-icon" href="./img/CV.png">
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- Contenedor para agrupar ambas tarjetas -->
+  <div class="cards-container">
+    <!-- Tarjeta del recibo -->
+    <div class="card" data-tilt data-tilt-glare data-tilt-max-glare="0.8">
+      <div class="content">
+        <h2>Resumen</h2>
+        <div class="grid">
+          <div class="label">Precio:</div>
+          <div class="value">$225.000.-</div>
+
+          <div class="label">Descuento:</div>
+          <div class="value">- $180.000.-</div>
+
+          <!-- Línea divisoria -->
+          <div class="line"></div>
+
+          <div class="label">Precio con Descuento:</div>
+          <div class="value">$45.000.-</div>
+
+          <!-- Otra línea divisoria -->
+          <div class="line"></div>
+
+          <div class="label total">Total a Pagar:</div>
+          <div class="value total">$45.000.-</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta de confirmar compra -->
+    <div class="card" data-tilt data-tilt-glare data-tilt-max-glare="0.8">
+      <div class="content">
+        <a href="https://mpago.la/2ChkoDZ"><h2>Continuar</h2></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Librería para el efecto tilt -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

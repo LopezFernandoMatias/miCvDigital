@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/ZR60xQ9Y/CV.webp" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="logo"><span>Linda</span></a>
+      <ul class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </ul>
+
+      <i class="bx bx-menu-alt-right" id="menu"></i>
+      <a href="#contact" class="btn">Contact Me</a>
+    </nav>
+
+    <section id="home">
+      <img src="https://i.postimg.cc/yxFznFPB/image.jpg" alt="" />
+
+      <div class="info-box">
+        <h1><span>Hello, I'm Linda</span></h1>
+        <h3><span>Web Developer</span> Based in Toronto</h3>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+          unde quos, consequatur, eligendi, repellat culpa dolor corrupti eaque
+          harum earum quis ex necessitatibus placeat optio? Veritatis quod eos
+          deleniti error.
+        </p>
+      </div>
+
+      <div class="btn-box">
+        <div class="btn">Hire</div>
+        <div class="btn">Contact Me</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-box">
+        <div class="about-info">
+          <h1><span>About Me</span></h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
+            quae amet non nemo! Harum ratione veniam numquam illum sint eius.
+            Quam, nesciunt. Ratione soluta accusantium, eligendi laborum quia
+            officiis obcaecati!
+          </p>
+        </div>
+
+        <h2><span>Skills</span></h2>
+        <div class="skills">
+          <ul>
+            <li>
+              <span><i class="bx bx-chevron-right"></i> HTML</span>
+            </li>
+
+            <li>
+              <span><i class="bx bx-chevron-right"></i> CSS</span>
+            </li>
+
+            <li>
+              <span><i class="bx bx-chevron-right"></i> JavaScript</span>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <span><i class="bx bx-chevron-right"></i> React</span>
+            </li>
+
+            <li>
+              <span><i class="bx bx-chevron-right"></i> Node</span>
+            </li>
+
+            <li>
+              <span><i class="bx bx-chevron-right"></i> MySQL</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <img src="https://i.postimg.cc/yxFznFPB/image.jpg" alt="" />
+    </section>
+
+    <section id="services">
+      <h1 class="header"><span>Services</span></h1>
+      <div class="services-container">
+        <div class="box">
+          <h1><span>Web Design</span></h1>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+            temporibus veritatis culpa ullam quaerat sed pariatur qui, id
+            tempora sint architecto nostrum excepturi expedita est minima libero
+            cum magnam officiis!
+          </p>
+          <img src="https://i.postimg.cc/6pHxH6d7/web-design.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <h1><span>Web Development</span></h1>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+            temporibus veritatis culpa ullam quaerat sed pariatur qui, id
+            tempora sint architecto nostrum excepturi expedita est minima libero
+            cum magnam officiis!
+          </p>
+          <img src="https://i.postimg.cc/mgg0Fx0T/web-dev.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <h1><span>Graphic Design</span></h1>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+            temporibus veritatis culpa ullam quaerat sed pariatur qui, id
+            tempora sint architecto nostrum excepturi expedita est minima libero
+            cum magnam officiis!
+          </p>
+          <img src="https://i.postimg.cc/5yfPdLJf/graphic.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h1 class="header"><span>Contact</span></h1>
+
+      <form action="#">
+        <div class="input-box">
+          <span>Full Name</span>
+          <input type="text" placeholder="Enter Your Full Name" />
+        </div>
+        
+        <div class="input-box">
+          <span>Your Email</span>
+          <input type="text" placeholder="Enter Your Email" />
+        </div>
+
+        <div class="input-box">
+          <span>Your Message</span>
+          <input type="text" placeholder="Enter Your Message" />
+        </div>
+
+        <div class="btn">Submit</div>
+      </form>
+    </section>
+
+    <div class="ribbon">
+      <div class="redes">
+        <!-- Botón para ir a la página de inicio -->
+        <a href="https://tucvdigital.store" title="Inicio">
+          <i class="bx bxs-home-alt-2"></i>
+        </a>
+
+        <!-- Botón para regresar a la página anterior -->
+        <a href="javascript:void(0);" onclick="goBack()" title="Volver">
+          <i class="bx bx-arrow-to-left"></i>
+        </a>
+
+        <a
+          href="https://wa.me/+541122532506?text=Hola,%20me%20ha%20llamado%20la%20atención%20el%20sitio%20número%2001%20,%20quisiera%20más%20información%20sobre%20sus%20servicios%20."
+          target="_blank"
+        >
+          <i class="bx bxl-whatsapp"></i>
+        </a>
+      </div>
+      Tu sitio Web Personal
+    </div>
+
+    <a href="./confirmar/index.html"
+      ><button class="button">
+        <div class="bg"></div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 342 208"
+          height="208"
+          width="342"
+          class="splash"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            d="M54.1054 99.7837C54.1054 99.7837 40.0984 90.7874 26.6893 97.6362C13.2802 104.485 1.5 97.6362 1.5 97.6362"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            d="M285.273 99.7841C285.273 99.7841 299.28 90.7879 312.689 97.6367C326.098 104.486 340.105 95.4893 340.105 95.4893"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            stroke-opacity="0.3"
+            d="M281.133 64.9917C281.133 64.9917 287.96 49.8089 302.934 48.2295C317.908 46.6501 319.712 36.5272 319.712 36.5272"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            stroke-opacity="0.3"
+            d="M281.133 138.984C281.133 138.984 287.96 154.167 302.934 155.746C317.908 157.326 319.712 167.449 319.712 167.449"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            d="M230.578 57.4476C230.578 57.4476 225.785 41.5051 236.061 30.4998C246.337 19.4945 244.686 12.9998 244.686 12.9998"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            d="M230.578 150.528C230.578 150.528 225.785 166.471 236.061 177.476C246.337 188.481 244.686 194.976 244.686 194.976"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            stroke-opacity="0.3"
+            d="M170.392 57.0278C170.392 57.0278 173.89 42.1322 169.571 29.54C165.252 16.9478 168.751 2.05227 168.751 2.05227"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            stroke-opacity="0.3"
+            d="M170.392 150.948C170.392 150.948 173.89 165.844 169.571 178.436C165.252 191.028 168.751 205.924 168.751 205.924"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            d="M112.609 57.4476C112.609 57.4476 117.401 41.5051 107.125 30.4998C96.8492 19.4945 98.5 12.9998 98.5 12.9998"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            d="M112.609 150.528C112.609 150.528 117.401 166.471 107.125 177.476C96.8492 188.481 98.5 194.976 98.5 194.976"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            stroke-opacity="0.3"
+            d="M62.2941 64.9917C62.2941 64.9917 55.4671 49.8089 40.4932 48.2295C25.5194 46.6501 23.7159 36.5272 23.7159 36.5272"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-width="3"
+            stroke-opacity="0.3"
+            d="M62.2941 145.984C62.2941 145.984 55.4671 161.167 40.4932 162.746C25.5194 164.326 23.7159 174.449 23.7159 174.449"
+          ></path>
+        </svg>
+
+        <div class="wrap">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 221 42"
+            height="42"
+            width="221"
+            class="path"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-width="3"
+              d="M182.674 2H203C211.837 2 219 9.16344 219 18V24C219 32.8366 211.837 40 203 40H18C9.16345 40 2 32.8366 2 24V18C2 9.16344 9.16344 2 18 2H47.8855"
+            ></path>
+          </svg>
+
+          <div class="outline"></div>
+          <div class="content">
+            <span class="char state-1">
+              <span data-label="c" style="--i: 1">c</span>
+              <span data-label="o" style="--i: 2">o</span>
+              <span data-label="m" style="--i: 3">m</span>
+              <span data-label="p" style="--i: 4">p</span>
+              <span data-label="r" style="--i: 5">r</span>
+              <span data-label="a" style="--i: 6">a</span>
+              <span data-label="r" style="--i: 7">r</span>
+              <span data-label="!" style="--i: 8">!</span>
+            </span>
+
+            <div class="icon">
+              <div></div>
+            </div>
+            <!--
+          <span class="char state-2">
+            <span data-label="J" style="--i: 1">J</span>
+            <span data-label="o" style="--i: 2">o</span>
+            <span data-label="i" style="--i: 3">i</span>
+            <span data-label="n" style="--i: 4">n</span>
+            <span data-label="N" style="--i: 5">N</span>
+            <span data-label="o" style="--i: 6">o</span>
+            <span data-label="w" style="--i: 7">w</span>
+          </span>
+          --></div>
+        </div>
+      </button></a
+    >
+    <!-- Cartel de descuento -->
+    <a href="../incluye/index.html" class="discount-banner">
+      <img
+        src="https://i.postimg.cc/B6Br3nZ7/80off.png"
+        alt="Descuento del 80%"
+      />
+    </a>
+
+    <footer>
+      <div class="col-left">
+        <div class="col-box">
+          <span><i class="bx bxs-location-plus"></i></span>
+          <span>1234 Av Hipolito Yrigoyen 2861, cp 1636</span>
+        </div>
+
+        <div class="col-box">
+          <span><i class="bx bxs-phone"></i></span>
+          <span>11 2535 4444</span>
+        </div>
+
+        <div class="col-box">
+          <span><i class="bx bxs-envelope"></i></span>
+          <span>TuCorreoElectronico@gmail.com</span>
+        </div>
+      </div>
+      <div class="col-right">
+        <span>About My Services</span>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione quam
+          et saepe molestiae error. Molestiae, natus! Dolores vel quam ducimus
+          necessitatibus asperiores in, aut facere reiciendis culpa, nam odit
+          sint.
+        </p>
+
+        <div class="social-icons">
+          <span><i class="bx bxl-meta"></i></span>
+
+          <span><i class="bx bxl-instagram-alt"></i></span>
+
+          <span><i class="bx bxl-linkedin-square"></i></span>
+
+          <span><i class="bx bxl-github"></i></span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
