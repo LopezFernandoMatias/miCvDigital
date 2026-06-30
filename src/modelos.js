@@ -2,112 +2,125 @@ import "./modelos.css";
 
 const track = document.getElementById("track");
 
+/* =====================================
+   MODELOS
+===================================== */
+
+/*Si no quiero crear una lista tan grande y tan dificil de mantener puedo crear un foreach */
+/*const modelos = Array.from({ length: 24 }, (_, i) => ({
+    img: `https://i.postimg.cc/MICARPETA/${i + 1}.webp`,
+    link: `porfolios/porfolio${i + 1}/`,
+}));*/
+
 const modelos = [
   {
     img: "https://i.postimg.cc/7Zws8Kp5/1.webp",
-    link: "porfolios/porfolio1/index.html",
+    link: "porfolios/porfolio1/",
   },
   {
     img: "https://i.postimg.cc/g2sMYvWN/2.webp",
-    link: "porfolios/porfolio2/index.html",
+    link: "porfolios/porfolio2/",
   },
   {
     img: "https://i.postimg.cc/1XDHbFB0/3.webp",
-    link: "porfolios/porfolio3/index.html",
+    link: "porfolios/porfolio3/",
   },
   {
     img: "https://i.postimg.cc/PfD2LGHL/4.webp",
-    link: "porfolios/porfolio4/index.html",
+    link: "porfolios/porfolio4/",
   },
   {
     img: "https://i.postimg.cc/VLBgRjdm/5.webp",
-    link: "porfolios/porfolio5/index.html",
+    link: "porfolios/porfolio5/",
   },
   {
     img: "https://i.postimg.cc/vHc87vP6/6.webp",
-    link: "porfolios/porfolio6/index.html",
+    link: "porfolios/porfolio6/",
   },
   {
     img: "https://i.postimg.cc/wjqVb7mJ/7.webp",
-    link: "porfolios/porfolio7/index.html",
+    link: "porfolios/porfolio7/",
   },
   {
     img: "https://i.postimg.cc/k5Dyqzwg/8.webp",
-    link: "porfolios/porfolio8/index.html",
+    link: "porfolios/porfolio8/",
   },
   {
     img: "https://i.postimg.cc/jdm8CswJ/portada.png",
-    link: "porfolios/porfolio9/index.html",
+    link: "porfolios/porfolio9/",
   },
   {
     img: "https://i.postimg.cc/NFv88MtK/10.webp",
-    link: "porfolios/porfolio10/index.html",
+    link: "porfolios/porfolio10/",
   },
   {
     img: "https://i.postimg.cc/GmmFxVWx/11.webp",
-    link: "porfolios/porfolio11/index.html",
+    link: "porfolios/porfolio11/",
   },
   {
     img: "https://i.postimg.cc/q7t29nMt/12.webp",
-    link: "porfolios/porfolio12/index.html",
+    link: "porfolios/porfolio12/",
   },
   {
     img: "https://i.postimg.cc/FzxSjVG6/13.webp",
-    link: "porfolios/porfolio13/index.html",
+    link: "porfolios/porfolio13/",
   },
   {
     img: "https://i.postimg.cc/J4PJ0KsD/14.webp",
-    link: "porfolios/porfolio14/index.html",
+    link: "porfolios/porfolio14/",
   },
   {
     img: "https://i.postimg.cc/MpLQbTbz/15.webp",
-    link: "porfolios/porfolio15/index.html",
+    link: "porfolios/porfolio15/",
   },
   {
     img: "https://i.postimg.cc/9fqqxhJZ/16.webp",
-    link: "porfolios/porfolio16/index.html",
+    link: "porfolios/porfolio16/",
   },
   {
     img: "https://i.postimg.cc/vTGgH6Mt/17.webp",
-    link: "porfolios/porfolio17/index.html",
+    link: "porfolios/porfolio17/",
   },
   {
     img: "https://i.postimg.cc/8z7F5G89/18.webp",
-    link: "porfolios/porfolio18/index.html",
+    link: "porfolios/porfolio18/",
   },
   {
     img: "https://i.postimg.cc/g21xL7mJ/19.webp",
-    link: "porfolios/porfolio19/index.html",
+    link: "porfolios/porfolio19/",
   },
   {
     img: "https://i.postimg.cc/CKDzG4x4/20.webp",
-    link: "porfolios/porfolio20/index.html",
+    link: "porfolios/porfolio20/",
   },
   {
     img: "https://i.postimg.cc/nzJM0Qsf/21.webp",
-    link: "porfolios/porfolio21/index.html",
+    link: "porfolios/porfolio21/",
   },
   {
     img: "https://i.postimg.cc/85mc3PWJ/22.webp",
-    link: "porfolios/porfolio22/index.html",
+    link: "porfolios/porfolio22/",
   },
   {
     img: "https://i.postimg.cc/pr0TWGsP/23.webp",
-    link: "porfolios/porfolio23/index.html",
+    link: "porfolios/porfolio23/",
   },
   {
     img: "https://i.postimg.cc/pXTrGvdr/24.webp",
-    link: "porfolios/porfolio24/index.html",
+    link: "porfolios/porfolio24/",
   },
 ];
 
-let currentIndex = Math.floor(modelos.length / 2);
+/* =====================================
+   VARIABLES
+===================================== */
 
 const angleStep = 22;
+let currentIndex = Math.floor(modelos.length / 2);
 
-// =========================
-// Crear tarjetas
-// =========================
+/* =====================================
+   CREAR TARJETAS
+===================================== */
 
 modelos.forEach((modelo) => {
   const card = document.createElement("div");
@@ -120,57 +133,48 @@ modelos.forEach((modelo) => {
   track.appendChild(card);
 });
 
-const cards = [...document.querySelectorAll(".card")];
+const cards = [...track.querySelectorAll(".card")];
 
-// =========================
-// Render
-// =========================
+/* =====================================
+   RENDER
+===================================== */
 
 function updateCards() {
-  cards.forEach((card, i) => {
-    let diff = i - currentIndex;
+  cards.forEach((card, index) => {
+    let diff = index - currentIndex;
 
-    if (diff > modelos.length / 2) {
-      diff -= modelos.length;
-    }
+    if (diff > modelos.length / 2) diff -= modelos.length;
+    if (diff < -modelos.length / 2) diff += modelos.length;
 
-    if (diff < -modelos.length / 2) {
-      diff += modelos.length;
-    }
-
-    const isActive = i === currentIndex;
+    const active = index === currentIndex;
 
     card.style.transform = `
-      rotate(${diff * angleStep}deg)
-      rotateX(var(--rx, 0deg))
-      rotateY(var(--ry, 0deg))
-      translateZ(${isActive ? 60 : 0}px)
-      scale(${isActive ? 1.15 : 0.8})
+        rotate(${diff * angleStep}deg)
+        rotateX(var(--rx,0deg))
+        rotateY(var(--ry,0deg))
+        translateZ(${active ? 60 : 0}px)
+        scale(${active ? 1.15 : 0.8})
     `;
 
-    card.classList.toggle("active", isActive);
+    card.classList.toggle("active", active);
   });
 }
 
-// =========================
-// Carrusel infinito
-// =========================
+/* =====================================
+   MOVER
+===================================== */
 
-function move(dir) {
-  currentIndex = (currentIndex + dir + modelos.length) % modelos.length;
+function move(direction) {
+  currentIndex = (currentIndex + direction + modelos.length) % modelos.length;
 
   updateCards();
 }
 
-// =========================
-// Inicializar
-// =========================
-
 updateCards();
 
-// =========================
-// Click en tarjeta activa
-// =========================
+/* =====================================
+   CLICK
+===================================== */
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
@@ -179,14 +183,22 @@ cards.forEach((card) => {
     const destino = card.dataset.link;
 
     if (destino) {
-      window.location.href = destino;
+      window.location.href = import.meta.env.BASE_URL + destino;
     }
   });
 });
 
-// =========================
-// Mouse Wheel
-// =========================
+/* =====================================
+   BOTONES
+===================================== */
+
+document.getElementById("prevBtn")?.addEventListener("click", () => move(-1));
+
+document.getElementById("nextBtn")?.addEventListener("click", () => move(1));
+
+/* =====================================
+   RUEDA
+===================================== */
 
 let lastScroll = 0;
 
@@ -198,17 +210,9 @@ window.addEventListener("wheel", (e) => {
   move(e.deltaY > 0 ? 1 : -1);
 });
 
-// =========================
-// Botones
-// =========================
-
-document.getElementById("prevBtn")?.addEventListener("click", () => move(-1));
-
-document.getElementById("nextBtn")?.addEventListener("click", () => move(1));
-
-// =========================
-// Swipe táctil
-// =========================
+/* =====================================
+   SWIPE
+===================================== */
 
 let touchStartX = 0;
 
@@ -224,15 +228,16 @@ track.addEventListener("touchend", (e) => {
   }
 });
 
-// =========================
-// Drag con mouse
-// =========================
+/* =====================================
+   DRAG
+===================================== */
 
 let dragging = false;
 let mouseStartX = 0;
 
 track.addEventListener("mousedown", (e) => {
   dragging = true;
+
   mouseStartX = e.clientX;
 });
 
@@ -248,44 +253,37 @@ window.addEventListener("mouseup", (e) => {
   }
 });
 
-// =========================
-// Movimiento 3D por mouse
-// =========================
+/* =====================================
+   EFECTO 3D MOUSE
+===================================== */
 
 document.addEventListener("mousemove", (e) => {
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
-
-  const offsetX = (e.clientX - centerX) / centerX;
-  const offsetY = (e.clientY - centerY) / centerY;
+  const x = (e.clientX / window.innerWidth - 0.5) * 16;
+  const y = (e.clientY / window.innerHeight - 0.5) * 16;
 
   cards.forEach((card) => {
-    card.style.setProperty("--rx", `${offsetY * -8}deg`);
+    card.style.setProperty("--rx", `${-y}deg`);
+    card.style.setProperty("--ry", `${x}deg`);
 
-    card.style.setProperty("--ry", `${offsetX * 8}deg`);
-
-    card.style.setProperty("--shine-x", `${50 + offsetX * 40}%`);
-
-    card.style.setProperty("--shine-y", `${50 + offsetY * 40}%`);
+    card.style.setProperty("--shine-x", `${50 + x * 2}%`);
+    card.style.setProperty("--shine-y", `${50 + y * 2}%`);
   });
 });
 
-// =========================
-// Movimiento por giroscopio
-// =========================
+/* =====================================
+   GIROSCOPIO
+===================================== */
 
-if ("DeviceOrientationEvent" in window) {
+if (window.DeviceOrientationEvent) {
   window.addEventListener("deviceorientation", (event) => {
     const beta = event.beta || 0;
     const gamma = event.gamma || 0;
 
     cards.forEach((card) => {
       card.style.setProperty("--rx", `${-(beta * 0.2)}deg`);
-
       card.style.setProperty("--ry", `${gamma * 0.5}deg`);
 
       card.style.setProperty("--shine-x", `${50 + gamma}%`);
-
       card.style.setProperty("--shine-y", `${50 + beta * 0.5}%`);
     });
   });
