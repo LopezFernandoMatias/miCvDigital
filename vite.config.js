@@ -4,7 +4,7 @@ import { resolve } from "path";
 export default defineConfig({
   // Solo si publio en GitHub Pages.
   // Si usas Netlify, Vercel o un hosting propio, elimina esta línea.
-  base: "/paginaCVDigitales/",
+  //base: "/paginaCVDigitales/",
 
   build: {
     rollupOptions: {

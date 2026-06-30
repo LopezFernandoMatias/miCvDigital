@@ -7,10 +7,6 @@ const track = document.getElementById("track");
 ===================================== */
 
 /*Si no quiero crear una lista tan grande y tan dificil de mantener puedo crear un foreach */
-/*const modelos = Array.from({ length: 24 }, (_, i) => ({
-    img: `https://i.postimg.cc/MICARPETA/${i + 1}.webp`,
-    link: `porfolios/porfolio${i + 1}/`,
-}));*/
 
 const modelos = [
   {
