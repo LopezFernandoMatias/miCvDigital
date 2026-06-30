@@ -11,99 +11,99 @@ const track = document.getElementById("track");
 const modelos = [
   {
     img: "https://i.postimg.cc/7Zws8Kp5/1.webp",
-    link: "porfolios/porfolio1/",
+    link: "porfolios/porfolio1/index.html",
   },
   {
     img: "https://i.postimg.cc/g2sMYvWN/2.webp",
-    link: "porfolios/porfolio2/",
+    link: "porfolios/porfolio2/index.html",
   },
   {
     img: "https://i.postimg.cc/1XDHbFB0/3.webp",
-    link: "porfolios/porfolio3/",
+    link: "porfolios/porfolio3/index.html",
   },
   {
     img: "https://i.postimg.cc/PfD2LGHL/4.webp",
-    link: "porfolios/porfolio4/",
+    link: "porfolios/porfolio4/index.html",
   },
   {
     img: "https://i.postimg.cc/VLBgRjdm/5.webp",
-    link: "porfolios/porfolio5/",
+    link: "porfolios/porfolio5/index.html",
   },
   {
     img: "https://i.postimg.cc/vHc87vP6/6.webp",
-    link: "porfolios/porfolio6/",
+    link: "porfolios/porfolio6/index.html",
   },
   {
     img: "https://i.postimg.cc/wjqVb7mJ/7.webp",
-    link: "porfolios/porfolio7/",
+    link: "porfolios/porfolio7/index.html",
   },
   {
     img: "https://i.postimg.cc/k5Dyqzwg/8.webp",
-    link: "porfolios/porfolio8/",
+    link: "porfolios/porfolio8/index.html",
   },
   {
     img: "https://i.postimg.cc/jdm8CswJ/portada.png",
-    link: "porfolios/porfolio9/",
+    link: "porfolios/porfolio9/index.html",
   },
   {
     img: "https://i.postimg.cc/NFv88MtK/10.webp",
-    link: "porfolios/porfolio10/",
+    link: "porfolios/porfolio10/index.html",
   },
   {
     img: "https://i.postimg.cc/GmmFxVWx/11.webp",
-    link: "porfolios/porfolio11/",
+    link: "porfolios/porfolio11/index.html",
   },
   {
     img: "https://i.postimg.cc/q7t29nMt/12.webp",
-    link: "porfolios/porfolio12/",
+    link: "porfolios/porfolio12/index.html",
   },
   {
     img: "https://i.postimg.cc/FzxSjVG6/13.webp",
-    link: "porfolios/porfolio13/",
+    link: "porfolios/porfolio13/index.html",
   },
   {
     img: "https://i.postimg.cc/J4PJ0KsD/14.webp",
-    link: "porfolios/porfolio14/",
+    link: "porfolios/porfolio14/index.html",
   },
   {
     img: "https://i.postimg.cc/MpLQbTbz/15.webp",
-    link: "porfolios/porfolio15/",
+    link: "porfolios/porfolio15/index.html",
   },
   {
     img: "https://i.postimg.cc/9fqqxhJZ/16.webp",
-    link: "porfolios/porfolio16/",
+    link: "porfolios/porfolio16/index.html",
   },
   {
     img: "https://i.postimg.cc/vTGgH6Mt/17.webp",
-    link: "porfolios/porfolio17/",
+    link: "porfolios/porfolio17/index.html",
   },
   {
     img: "https://i.postimg.cc/8z7F5G89/18.webp",
-    link: "porfolios/porfolio18/",
+    link: "porfolios/porfolio18/index.html",
   },
   {
     img: "https://i.postimg.cc/g21xL7mJ/19.webp",
-    link: "porfolios/porfolio19/",
+    link: "porfolios/porfolio19/index.html",
   },
   {
     img: "https://i.postimg.cc/CKDzG4x4/20.webp",
-    link: "porfolios/porfolio20/",
+    link: "porfolios/porfolio20/index.html",
   },
   {
     img: "https://i.postimg.cc/nzJM0Qsf/21.webp",
-    link: "porfolios/porfolio21/",
+    link: "porfolios/porfolio21/index.html",
   },
   {
     img: "https://i.postimg.cc/85mc3PWJ/22.webp",
-    link: "porfolios/porfolio22/",
+    link: "porfolios/porfolio22/index.html",
   },
   {
     img: "https://i.postimg.cc/pr0TWGsP/23.webp",
-    link: "porfolios/porfolio23/",
+    link: "porfolios/porfolio23/index.html",
   },
   {
     img: "https://i.postimg.cc/pXTrGvdr/24.webp",
-    link: "porfolios/porfolio24/",
+    link: "porfolios/porfolio24/index.html",
   },
 ];
 
