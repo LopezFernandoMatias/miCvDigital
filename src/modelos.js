@@ -88,23 +88,23 @@ const modelos = [
   {
     img: "https://i.postimg.cc/CKDzG4x4/20.webp",
     link: "porfolios/porfolio20/index.html",
-  },
+  },/*
   {
     img: "https://i.postimg.cc/nzJM0Qsf/21.webp",
     link: "porfolios/porfolio21/index.html",
-  },/*
+  },*//*
   {
     img: "https://i.postimg.cc/85mc3PWJ/22.webp",
     link: "porfolios/porfolio22/index.html",
-  },*/
+  },*//*
   {
     img: "https://i.postimg.cc/pr0TWGsP/23.webp",
     link: "porfolios/porfolio23/index.html",
-  },
+  },*//*
   {
     img: "https://i.postimg.cc/pXTrGvdr/24.webp",
     link: "porfolios/porfolio24/index.html",
-  },
+  },*/
 ];
 
 /* =====================================
