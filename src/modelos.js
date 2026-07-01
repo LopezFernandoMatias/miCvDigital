@@ -84,11 +84,11 @@ const modelos = [
   {
     img: "https://i.postimg.cc/g21xL7mJ/19.webp",
     link: "porfolios/porfolio19/index.html",
-  },
+  },/*
   {
     img: "https://i.postimg.cc/CKDzG4x4/20.webp",
     link: "porfolios/porfolio20/index.html",
-  },/*
+  },*//*
   {
     img: "https://i.postimg.cc/nzJM0Qsf/21.webp",
     link: "porfolios/porfolio21/index.html",
