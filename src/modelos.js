@@ -136,21 +136,57 @@ const cards = [...track.querySelectorAll(".card")];
 ===================================== */
 
 function updateCards() {
+  const half = Math.floor(modelos.length / 2);
+
   cards.forEach((card, index) => {
     let diff = index - currentIndex;
 
-    if (diff > modelos.length / 2) diff -= modelos.length;
-    if (diff < -modelos.length / 2) diff += modelos.length;
+    // Mantener siempre la distancia más corta
+    if (diff > half) diff -= modelos.length;
+    if (diff < -half) diff += modelos.length;
 
     const active = index === currentIndex;
 
-    card.style.transform = `
-        rotate(${diff * angleStep}deg)
+    const angle = diff * angleStep;
+
+    // Ángulo anterior de la tarjeta
+    const previousAngle = Number(card.dataset.angle ?? angle);
+
+    // Si la diferencia es muy grande significa que la carta
+    // está saltando de un extremo al otro del carrusel.
+    const jumped =
+      Math.abs(previousAngle - angle) >
+      angleStep * (modelos.length - 2);
+
+    if (jumped) {
+      // Evitamos que haga la vuelta completa
+      card.style.transition = "none";
+
+      requestAnimationFrame(() => {
+        card.style.transform = `
+          rotate(${angle}deg)
+          rotateX(var(--rx,0deg))
+          rotateY(var(--ry,0deg))
+          translateZ(${active ? 60 : 0}px)
+          scale(${active ? 1.15 : 0.8})
+        `;
+
+        requestAnimationFrame(() => {
+          card.style.transition =
+            "transform .8s cubic-bezier(.2,.8,.2,1), filter .8s";
+        });
+      });
+    } else {
+      card.style.transform = `
+        rotate(${angle}deg)
         rotateX(var(--rx,0deg))
         rotateY(var(--ry,0deg))
         translateZ(${active ? 60 : 0}px)
         scale(${active ? 1.15 : 0.8})
-    `;
+      `;
+    }
+
+    card.dataset.angle = angle;
 
     card.classList.toggle("active", active);
   });
