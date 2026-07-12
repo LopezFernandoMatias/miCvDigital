@@ -38,6 +38,7 @@ window.onscroll = () =>{
     header.classList.toggle('sticky', window.scrollY > 100);
 }*/
 // toggle icon navbar
+import "./style.css";
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 

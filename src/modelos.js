@@ -24,11 +24,11 @@ const modelos = [
   {
     img: "https://i.postimg.cc/PfD2LGHL/4.webp",
     link: "porfolios/porfolio4/index.html",
-  },/*
+  },
   {
     img: "https://i.postimg.cc/VLBgRjdm/5.webp",
     link: "porfolios/porfolio5/index.html",
-  },*/
+  },
   {
     img: "https://i.postimg.cc/vHc87vP6/6.webp",
     link: "porfolios/porfolio6/index.html",
@@ -52,11 +52,11 @@ const modelos = [
   {
     img: "https://i.postimg.cc/GmmFxVWx/11.webp",
     link: "porfolios/porfolio11/index.html",
-  },/*
+  },
   {
     img: "https://i.postimg.cc/q7t29nMt/12.webp",
     link: "porfolios/porfolio12/index.html",
-  },*/
+  },
   {
     img: "https://i.postimg.cc/FzxSjVG6/13.webp",
     link: "porfolios/porfolio13/index.html",
@@ -64,15 +64,15 @@ const modelos = [
   {
     img: "https://i.postimg.cc/J4PJ0KsD/14.webp",
     link: "porfolios/porfolio14/index.html",
-  },/*
+  },
   {
     img: "https://i.postimg.cc/MpLQbTbz/15.webp",
     link: "porfolios/porfolio15/index.html",
-  },*//*
+  },
   {
     img: "https://i.postimg.cc/9fqqxhJZ/16.webp",
     link: "porfolios/porfolio16/index.html",
-  },*/
+  },
   {
     img: "https://i.postimg.cc/vTGgH6Mt/17.webp",
     link: "porfolios/porfolio17/index.html",
@@ -84,27 +84,27 @@ const modelos = [
   {
     img: "https://i.postimg.cc/g21xL7mJ/19.webp",
     link: "porfolios/porfolio19/index.html",
-  },/*
+  },
   {
     img: "https://i.postimg.cc/CKDzG4x4/20.webp",
     link: "porfolios/porfolio20/index.html",
-  },*//*
+  },
   {
     img: "https://i.postimg.cc/nzJM0Qsf/21.webp",
     link: "porfolios/porfolio21/index.html",
-  },*//*
+  },
   {
     img: "https://i.postimg.cc/85mc3PWJ/22.webp",
     link: "porfolios/porfolio22/index.html",
-  },*//*
+  },
   {
     img: "https://i.postimg.cc/pr0TWGsP/23.webp",
     link: "porfolios/porfolio23/index.html",
-  },*//*
+  },
   {
     img: "https://i.postimg.cc/pXTrGvdr/24.webp",
     link: "porfolios/porfolio24/index.html",
-  },*/
+  },
 ];
 
 /* =====================================
