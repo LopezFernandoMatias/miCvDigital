@@ -1,3 +1,4 @@
+import "./css/style.css";
 const menu = document.querySelector("#menu");
 const nav = document.querySelector(".links");
 

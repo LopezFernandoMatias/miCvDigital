@@ -1,4 +1,4 @@
-
+import "./css/style.css";
 //ScrollIt JS File
 
 (function($) {

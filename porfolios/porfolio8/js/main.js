@@ -1,3 +1,4 @@
+import "./css/style.css";
 'use strict';
 
 const nav = document.querySelector('.mobile-nav');
