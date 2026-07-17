@@ -1,36 +1,64 @@
-import "./css/style.css";
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+import "../css/style.css";
 
-window.onscroll = () => {
-    sections.forEach(sec =>{
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+// ===========================
+// Menú Responsive
+// ===========================
 
-        if(top >= offset && top < offset + height){
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ' ]').classList.add('active');
-                //document.querySelector('header nav a [href*=' + id + ' ]').classList.add('active');
-            })
-        }
-    })
+const menuIcon = document.querySelector("#menu-icon");
+const navbar = document.querySelector(".navbar");
+
+if (menuIcon && navbar) {
+  menuIcon.addEventListener("click", () => {
+    menuIcon.classList.toggle("bx-x");
+    navbar.classList.toggle("active");
+  });
 }
 
-menuIcon.onclick = () =>{
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-}
+// ===========================
+// Scroll
+// ===========================
 
-// Función para regresar a la página anterior
-function goBack() {
-    if (window.history.length > 1) {
-        window.history.back();
-    } else {
-        alert("No hay una página anterior en el historial.");
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("header nav a");
+
+window.addEventListener("scroll", () => {
+  sections.forEach((sec) => {
+    const top = window.scrollY;
+    const offset = sec.offsetTop - 150;
+    const height = sec.offsetHeight;
+    const id = sec.getAttribute("id");
+
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+      });
+
+      const activeLink = document.querySelector(`header nav a[href*="${id}"]`);
+
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
     }
+  });
+});
+
+// ===========================
+// Volver
+// ===========================
+
+function goBack() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    alert("No hay una página anterior en el historial.");
+  }
+}
+
+// Hacer la función visible desde el HTML
+window.goBack = goBack;
+
+const btnBack = document.getElementById("btnBack");
+
+if (btnBack) {
+    btnBack.addEventListener("click", goBack);
 }
