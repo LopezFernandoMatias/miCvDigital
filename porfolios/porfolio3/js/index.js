@@ -9,8 +9,10 @@ const navbar = document.querySelector(".navbar");
 
 if (menuIcon && navbar) {
   menuIcon.addEventListener("click", () => {
+    console.log(navbar.className);
     menuIcon.classList.toggle("bx-x");
     navbar.classList.toggle("active");
+    console.log(navbar.className);
   });
 }
 
