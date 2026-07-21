@@ -1,3 +1,4 @@
+import "../css/style.css";
 'use strict';
 
 //Opening or closing side bar

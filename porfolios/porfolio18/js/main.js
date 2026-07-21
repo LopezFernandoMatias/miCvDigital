@@ -1,4 +1,4 @@
-
+import "../css/style.css";
 
 const menuToggler = document.querySelector('.menu-toggler');
 const sideBar = document.querySelector('.side-bar');

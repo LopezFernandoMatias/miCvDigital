@@ -1,3 +1,4 @@
+import "../css/style.css";
 $('#navigation a').on('click', function(e) {
   e.preventDefault();
   var hash = this.hash;

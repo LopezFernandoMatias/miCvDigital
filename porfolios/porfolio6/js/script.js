@@ -1,4 +1,4 @@
-import "./css/style.css";
+import "../css/style.css";
 // Menú Responsive
 function myMenuFunction() {
     const menuBth = document.getElementById("myNavMenu");

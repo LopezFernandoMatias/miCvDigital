@@ -1,3 +1,4 @@
+import "../css/style.css";
 //Toggling Menu
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId);

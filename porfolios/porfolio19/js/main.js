@@ -1,3 +1,4 @@
+import "../css/style.css";
 //Activating Mobile Menu
 
 const showMenu = (toggleId, navId) => {
