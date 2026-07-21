@@ -13,6 +13,8 @@ export default defineConfig({
 
         modelos: resolve(__dirname, "modelos.html"),
 
+        promociones: resolve(__dirname, "promociones/descuentos/index.html"),
+
         porfolio1: resolve(__dirname, "porfolios/porfolio1/index.html"),
         porfolio2: resolve(__dirname, "porfolios/porfolio2/index.html"),
         porfolio2Confirmar: resolve(__dirname, "porfolios/porfolio2/confirmar/index.html"),
@@ -58,8 +60,9 @@ export default defineConfig({
         porfolio22Confirmar: resolve(__dirname, "porfolios/porfolio22/confirmar/index.html"),
         porfolio23: resolve(__dirname, "porfolios/porfolio23/index.html"),
         porfolio23Confirmar: resolve(__dirname, "porfolios/porfolio23/confirmar/index.html"),
-       /*rfolio24: resolve(__dirname, "porfolios/porfolio24/index.html"),
-        porfolio24Confirmar: resolve(__dirname, "porfolios/porfolio24/confirmar/index.html"),*/
+       porfolio24: resolve(__dirname, "porfolios/porfolio24/index.html"),
+        porfolio24Confirmar: resolve(__dirname, "porfolios/porfolio24/confirmar/index.html"),
+
       },
     },
   },
