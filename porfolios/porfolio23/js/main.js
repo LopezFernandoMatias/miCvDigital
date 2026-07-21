@@ -1,3 +1,5 @@
+import "../css/style.css";
+
 //Mobile Navigation
 
 const mobileNav = document.querySelector(".mobile-nav");

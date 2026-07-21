@@ -1,3 +1,4 @@
+import "../css/style.css";
 /*!
  * parallax.js v1.4.2 (https://pixelcog.github.io/parallax.js/)
  * @copyright 2016 PixelCog, Inc.
