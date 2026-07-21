@@ -102,7 +102,7 @@ const modelos = [
     link: "porfolios/porfolio23/index.html",
   },
   {
-    img: "https://i.postimg.cc/pXTrGvdr/24.webp",
+    img: "https://i.postimg.cc/QN4xGXj6/Captura-de-pantalla-2026-07-21-131703.png",
     link: "porfolios/porfolio24/index.html",
   },
 ];
