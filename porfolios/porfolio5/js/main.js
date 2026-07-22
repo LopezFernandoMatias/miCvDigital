@@ -23,6 +23,20 @@ window.addEventListener("keydown", (e) => {
 });
 
 // ═══════════════════════════════════════════════════════════════
+// TOUCH / MOBILE DETECTION
+// ═══════════════════════════════════════════════════════════════
+const isTouchDevice =
+  window.matchMedia("(hover: none) and (pointer: coarse)").matches ||
+  "ontouchstart" in window ||
+  navigator.maxTouchPoints > 0;
+
+// Ocultar cursor en dispositivos táctiles
+if (isTouchDevice) {
+  const cursorEl = document.getElementById("cursor");
+  if (cursorEl) cursorEl.style.display = "none";
+}
+
+// ═══════════════════════════════════════════════════════════════
 // PORTFOLIO DATA — 20 entries with real Unsplash images
 // ═══════════════════════════════════════════════════════════════
 const PORTFOLIO_DATA = {
@@ -951,20 +965,35 @@ window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && isModalOpen) closeModal();
 });
 
-// Click hint
+// Click hint (desktop only)
 function showClickHint() {
-  if (clickHint) clickHint.classList.add("visible");
+  if (clickHint && !isTouchDevice) clickHint.classList.add("visible");
 }
 function hideClickHint() {
   if (clickHint) clickHint.classList.remove("visible");
+}
+
+// Swipe hint (mobile only)
+const swipeHint = document.getElementById("swipe-hint");
+function showSwipeHint() {
+  if (swipeHint && isTouchDevice && currentSection < SECTION_COUNT - 1) {
+    swipeHint.classList.add("visible");
+  }
+}
+function hideSwipeHint() {
+  if (swipeHint) swipeHint.classList.remove("visible");
 }
 
 let hintTimeout;
 function scheduleHint() {
   clearTimeout(hintTimeout);
   hideClickHint();
+  hideSwipeHint();
   hintTimeout = setTimeout(() => {
-    if (!isModalOpen) showClickHint();
+    if (!isModalOpen) {
+      if (isTouchDevice) showSwipeHint();
+      else showClickHint();
+    }
   }, 3000);
 }
 
@@ -1185,8 +1214,10 @@ function updateCursor() {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// SCROLL NAVIGATION
+// SCROLL NAVIGATION — Desktop (wheel) + Mobile (touch)
 // ═══════════════════════════════════════════════════════════════
+
+// ── Desktop: Wheel ──
 let wheelCooldown = false;
 window.addEventListener("wheel", (e) => {
   if (wheelCooldown || isAnimating || isModalOpen) return;
@@ -1199,17 +1230,92 @@ window.addEventListener("wheel", (e) => {
   else gotoSection(Math.max(currentSection - 1, 0));
 });
 
+// ── Mobile: Touch Swipe ──
 let touchStartY = 0;
-window.addEventListener("touchstart", (e) => {
-  touchStartY = e.touches[0].clientY;
-});
+let touchStartX = 0;
+let touchStartTime = 0;
+let isSwiping = false;
+
+window.addEventListener(
+  "touchstart",
+  (e) => {
+    // No interceptar toques dentro del modal
+    if (isModalOpen) return;
+
+    touchStartY = e.touches[0].clientY;
+    touchStartX = e.touches[0].clientX;
+    touchStartTime = Date.now();
+    isSwiping = true;
+
+    // Raycasting táctil: actualizar mouse2D para que el click funcione
+    mouse2D.x = (e.touches[0].clientX / innerWidth) * 2 - 1;
+    mouse2D.y = (e.touches[0].clientY / innerHeight) * -2 + 1;
+  },
+  { passive: true },
+);
+
+window.addEventListener(
+  "touchmove",
+  (e) => {
+    if (!isSwiping || isModalOpen || isAnimating) return;
+
+    const touchY = e.touches[0].clientY;
+    const dy = touchStartY - touchY;
+
+    // Solo procesar swipe vertical significativo
+    if (Math.abs(dy) > 60) {
+      isSwiping = false; // Evitar múltiples navegaciones
+
+      if (dy > 0) {
+        gotoSection(Math.min(currentSection + 1, SECTION_COUNT - 1));
+      } else {
+        gotoSection(Math.max(currentSection - 1, 0));
+      }
+    }
+  },
+  { passive: true },
+);
+
 window.addEventListener("touchend", (e) => {
-  if (isModalOpen) return;
-  const dy = touchStartY - e.changedTouches[0].clientY;
-  if (Math.abs(dy) > 40) {
+  if (!isSwiping || isModalOpen) return;
+
+  const touchEndY = e.changedTouches[0].clientY;
+  const touchEndX = e.changedTouches[0].clientX;
+  const dy = touchStartY - touchEndY;
+  const dx = touchStartX - touchEndX;
+  const dt = Date.now() - touchStartTime;
+
+  // Click táctil (toque corto sin movimiento significativo)
+  if (Math.abs(dy) < 10 && Math.abs(dx) < 10 && dt < 300) {
+    // Actualizar mouse2D para raycasting
+    mouse2D.x = (touchEndX / innerWidth) * 2 - 1;
+    mouse2D.y = (touchEndY / innerHeight) * -2 + 1;
+
+    raycaster.setFromCamera(mouse2D, camera);
+    const hits = raycaster.intersectObjects(clickableMeshes);
+
+    if (hits.length > 0) {
+      const mesh = hits[0].object;
+      if (mesh.userData.isClickable) {
+        const section = mesh.userData.section;
+        const dataIndex = mesh.userData.dataIndex;
+        const data = PORTFOLIO_DATA[section]?.[dataIndex];
+        if (data) {
+          openModal(data);
+          hideClickHint();
+          hideSwipeHint();
+        }
+      }
+    }
+  }
+
+  // Swipe vertical
+  else if (Math.abs(dy) > 40 && Math.abs(dy) > Math.abs(dx)) {
     if (dy > 0) gotoSection(Math.min(currentSection + 1, SECTION_COUNT - 1));
     else gotoSection(Math.max(currentSection - 1, 0));
   }
+
+  isSwiping = false;
 });
 
 // ═══════════════════════════════════════════════════════════════
