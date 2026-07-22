@@ -1,7 +1,21 @@
+
 import "../css/style.css";
+// ===========================
+// Volver atrás (barra inferior)
+// ===========================
+function goBack() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    alert("No hay una página anterior en el historial.");
+  }
+}
+// Exponer la función globalmente si se necesita
+window.goBack = goBack;
 
+// ===========================
 // Toggling Skill Tabs
-
+// ===========================
 const tabs = document.querySelectorAll("[data-target]");
 const tabContent = document.querySelectorAll("[data-content]");
 
@@ -23,8 +37,9 @@ tabs.forEach((tab) => {
   });
 });
 
-//Mix it up Sorting
-
+// ===========================
+// Mix it up Sorting (Portfolio)
+// ===========================
 let mixerPortfolio = mixitup(".work-container", {
   selectors: {
     target: ".work-card",
@@ -34,8 +49,7 @@ let mixerPortfolio = mixitup(".work-container", {
   },
 });
 
-// Active link changing
-
+// Active link changing (Work filters)
 const linkWork = document.querySelectorAll(".work-item");
 
 function activeWork() {
@@ -44,8 +58,9 @@ function activeWork() {
 }
 linkWork.forEach((l) => l.addEventListener("click", activeWork));
 
-//Portfolio Popup
-
+// ===========================
+// Portfolio Popup
+// ===========================
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("work-button")) {
     togglePortfolioPopup();
@@ -70,7 +85,9 @@ function portfolioItemDetails(portfolioItem) {
     portfolioItem.querySelector(".portfolio-item-details").innerHTML;
 }
 
-//Services Popup
+// ===========================
+// Services Popup (modals)
+// ===========================
 const modalViews = document.querySelectorAll(".services-modal");
 const modelBtns = document.querySelectorAll(".services-button");
 const modalCloses = document.querySelectorAll(".services-modal-close");
@@ -93,8 +110,9 @@ modalCloses.forEach((modalClose) => {
   });
 });
 
-//Swiper Testimonial
-
+// ===========================
+// Swiper Testimonial
+// ===========================
 let swiper = new Swiper(".testimonials-container", {
   spaceBetween: 24,
   loop: true,
@@ -114,8 +132,9 @@ let swiper = new Swiper(".testimonials-container", {
   },
 });
 
-// Input Animation
-
+// ===========================
+// Input Animation (Contact form)
+// ===========================
 const inputs = document.querySelectorAll(".input");
 
 function focusFunc() {
@@ -135,8 +154,9 @@ inputs.forEach((input) => {
   input.addEventListener("blur", blurFunc);
 });
 
-// Scroll Section Active Link
-
+// ===========================
+// Scroll Section Active Link (Nav)
+// ===========================
 const sections = document.querySelectorAll("section[id]");
 
 window.addEventListener("scroll", navHighlighter);
@@ -160,8 +180,9 @@ function navHighlighter() {
   });
 }
 
-// Activating Sidebar
-
+// ===========================
+// Activating Sidebar (mobile)
+// ===========================
 const navMenu = document.getElementById("sidebar");
 const navToggle = document.getElementById("nav-toggle");
 const navClose = document.getElementById("nav-close");
