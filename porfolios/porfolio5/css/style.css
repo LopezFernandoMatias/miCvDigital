@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --accent: #ff4444;
+  --bg: #080808;
+  --text: #f0f0f0;
+  --nav-w: 220px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  font-family: "Space Mono", monospace;
+  cursor: none;
+}
+
+canvas {
+  display: block;
+}
+
+/* ── CURSOR ── */
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+#cursor .ring {
+  position: absolute;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.18s ease,
+    height 0.18s ease,
+    border-color 0.18s ease,
+    opacity 0.18s ease;
+}
+#cursor .dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+#cursor .ring.outer {
+  width: 36px;
+  height: 36px;
+  opacity: 0.6;
+}
+#cursor .ring.inner {
+  width: 10px;
+  height: 10px;
+  opacity: 0.9;
+}
+body.hover-3d #cursor .ring.outer {
+  width: 60px;
+  height: 60px;
+  opacity: 1;
+  border-color: var(--accent);
+}
+body.hover-3d #cursor .ring.inner {
+  width: 18px;
+  height: 18px;
+  border-color: var(--accent);
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 50%;
+  right: 28px;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: none;
+  padding: 6px 0;
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+.nav-label {
+  font-family: "Space Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.3s;
+}
+
+.nav-pip {
+  width: 6px;
+  height: 6px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition:
+    background 0.3s,
+    border-color 0.3s,
+    transform 0.3s;
+}
+
+.nav-btn.active .nav-pip {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.6);
+}
+.nav-btn.active .nav-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-btn:hover .nav-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+.nav-btn:hover .nav-pip {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── SCROLL HINT ── */
+#scroll-hint {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 0.6s;
+}
+#scroll-hint span {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+#scroll-hint .arrow {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+  animation: arrow-pulse 1.8s ease-in-out infinite;
+}
+@keyframes arrow-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+}
+
+/* ── CORNER LABELS ── */
+.corner {
+  position: fixed;
+  z-index: 100;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+#c-tl {
+  top: 22px;
+  left: 24px;
+}
+#c-tr {
+  top: 22px;
+  right: 24px;
+  text-align: right;
+}
+#c-bl {
+  bottom: 22px;
+  left: 24px;
+}
+#c-br {
+  bottom: 22px;
+  right: 24px;
+  text-align: right;
+  cursor: none;
+  pointer-events: all;
+}
+#c-br:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── SECTION COUNTER ── */
+#section-counter {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.25);
+  z-index: 100;
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── RANDOMIZE HINT ── */
+#rnd-hint {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 100;
+  pointer-events: none;
+  animation: fade-hint 4s ease forwards;
+  animation-delay: 2s;
+}
+@keyframes fade-hint {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

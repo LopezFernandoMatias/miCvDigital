@@ -26,7 +26,7 @@ const modelos = [
     link: "porfolios/porfolio4/index.html",
   },
   {
-    img: "https://i.postimg.cc/VLBgRjdm/5.webp",
+    img: "https://i.postimg.cc/3RqK69FF/portfolio5.png",
     link: "porfolios/porfolio5/index.html",
   },
   {

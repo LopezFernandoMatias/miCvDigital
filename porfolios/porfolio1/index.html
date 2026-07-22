@@ -1,479 +1,658 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Elizabeth Caballero</title>
-    
-    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/ZR60xQ9Y/CV.webp">
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://i.postimg.cc/ZR60xQ9Y/CV.webp"
+    />
 
     <!-- Primary Meta Tags -->
-<title>Elizabeth Caballero - Pastelería, panadería y cocina vegana.</title>
-<meta name="title" content="Elizabeth Caballero - Pastelería, panadería y cocina vegana.">
-<meta name="description" content="Platos, recetas y el paso a paso de cada receta.">
+    <title>Elizabeth Caballero - Pastelería, panadería y cocina vegana.</title>
+    <meta
+      name="title"
+      content="Elizabeth Caballero - Pastelería, panadería y cocina vegana."
+    />
+    <meta
+      name="description"
+      content="Platos, recetas y el paso a paso de cada receta."
+    />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="#">
-<meta property="og:title" content="Elizabeth Caballero - Pastelería, panadería y cocina vegana.">
-<meta property="og:description" content="Platos, recetas y el paso a paso de cada receta.">
-<meta property="og:image" content="">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="#" />
+    <meta
+      property="og:title"
+      content="Elizabeth Caballero - Pastelería, panadería y cocina vegana."
+    />
+    <meta
+      property="og:description"
+      content="Platos, recetas y el paso a paso de cada receta."
+    />
+    <meta property="og:image" content="" />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="#">
-<meta property="twitter:title" content="Elizabeth Caballero - Pastelería, panadería y cocina vegana.">
-<meta property="twitter:description" content="Platos, recetas y el paso a paso de cada receta.">
-<meta property="twitter:image" content="">
-</head>
-<body>
-     <!-- MENU ENCABEZADO -->
-     <div class="contenedor-header">
-        <header>
-            <div class="logo">
-                <a href="#">Elizabeth</a>
-            </div>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
-                    <li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
-                    <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
-                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
-                    <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
-                    <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
-                </ul>
-            </nav>
-            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </header>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="#" />
+    <meta
+      property="twitter:title"
+      content="Elizabeth Caballero - Pastelería, panadería y cocina vegana."
+    />
+    <meta
+      property="twitter:description"
+      content="Platos, recetas y el paso a paso de cada receta."
+    />
+    <meta property="twitter:image" content="" />
+  </head>
+  <body>
+    <!-- MENU ENCABEZADO -->
+    <div class="contenedor-header">
+      <header>
+        <div class="logo">
+          <a href="#">Elizabeth</a>
+        </div>
+        <nav id="nav">
+          <ul>
+            <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
+            <li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
+            <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
+            <li>
+              <a href="#curriculum" onclick="seleccionar()">CURRICULUM</a>
+            </li>
+            <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
+            <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+          </ul>
+        </nav>
+        <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </header>
     </div>
 
     <!-- SECCION INICIO -->
     <section id="inicio" class="inicio">
-        <div class="contenido-banner">
-            <div class="contenedor-img">
-                <img src="https://i.postimg.cc/Yqyn44kC/iag-Elizabeth-1.webp" alt="">
-            </div>
-            <h1>Elizabeth</h1>
-            <h2>Chef</h2>
-            <div class="redes">
-                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-skype"></i></a>
-                <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-rss"></i></a>
-            </div>
+      <div class="contenido-banner">
+        <div class="contenedor-img">
+          <img
+            src="https://i.postimg.cc/Yqyn44kC/iag-Elizabeth-1.webp"
+            alt=""
+          />
         </div>
+        <h1>Elizabeth</h1>
+        <h2>Chef</h2>
+        <div class="redes">
+          <a href="#" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-skype"></i
+          ></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a href="#/" target="_blank" rel="noopener noreferrer"
+            ><i class="fa-solid fa-rss"></i
+          ></a>
+        </div>
+      </div>
     </section>
 
     <!-- SECCION SOBRE MI -->
     <section id="sobremi" class="sobremi">
-        <div class="contenido-seccion">
-            <h2>Sobre mi</h2>
-            <p><span>Caballero Elizabeth</span> 
-                <p>
-                    Es un placer presentarme como una profesional con más de 20 años de experiencia. Me complace compartir con ustedes mi amplio conocimiento y habilidades adquiridas a lo largo de mi carrera en la industria de la hospitalidad.<p>
-                
-                <p>
-                    Agradezco sinceramente su consideración y estaré encantada de brindarles más detalles sobre mi experiencia y logros durante una entrevista personal. Estoy emocionada por la oportunidad de ser parte de su equipo y continuar brindando un excelente servicio a los comensales.</p>
-                <p>        
-                Gracias por su tiempo y consideración.
-                </p>
+      <div class="contenido-seccion">
+        <h2>Sobre mi</h2>
+        <p><span>Caballero Elizabeth</span></p>
+        <p>
+          Es un placer presentarme como una profesional con más de 20 años de
+          experiencia. Me complace compartir con ustedes mi amplio conocimiento
+          y habilidades adquiridas a lo largo de mi carrera en la industria de
+          la hospitalidad.
+        </p>
+        <p></p>
 
-            <div class="fila">
-                <!-- datos personales -->
-                <div class="col">
-                    <h3>Informacion Personal</h3>
-                    <ul>
-                        <li>
-                            <strong>Fecha de nacimiento</strong>
-                            13-01-1975
-                        </li>
-                        <li>
-                            <strong>Telefono</strong>
-                            +54 9 011 123452468
-                        </li>
-                        <li>
-                            <strong>Correo</strong>
-                            Chef.ElizabethCaballero@gmail.com
-                        </li>
-                        <li>
-                            <strong>Website</strong>
-                            www.CaballeroElizabeth.com
-                        </li>
-                        <li>
-                            <strong>Dirección</strong>
-                            Av. San Martin 2082 Rafael Calzada, Buenos Aires Argentina
-                        </li>
-                        <li>
-                            <strong>POST</strong>
-                            <span>Vegan Chef</span>
-                        </li>
-                    </ul>
-                </div>
+        <p>
+          Agradezco sinceramente su consideración y estaré encantada de
+          brindarles más detalles sobre mi experiencia y logros durante una
+          entrevista personal. Estoy emocionada por la oportunidad de ser parte
+          de su equipo y continuar brindando un excelente servicio a los
+          comensales.
+        </p>
+        <p>Gracias por su tiempo y consideración.</p>
 
-                <!-- intereses -->
-                <div class="col">
-                    <h3>intereses</h3>
-                    <div class="contenedor-intereses">
-                        <div class="interes">
-                            <i class="fa-solid fa-bowl-food"></i>
-                            <span>COCINA</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-headphones"></i>
-                            <span>MUSICA</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-plane"></i>
-                            <span>VIAJES</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-horse"></i>
-                            <span>RESCATES</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-person-hiking"></i>
-                            <span>DEPORTES</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-book"></i>
-                            <span>LIBROS</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-dog"></i>
-                            <span>ANIMALES</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-camera"></i>
-                            <span>FOTOS</span>
-                        </div>
-                        
-                    </div>
-                </div>
+        <div class="fila">
+          <!-- datos personales -->
+          <div class="col">
+            <h3>Informacion Personal</h3>
+            <ul>
+              <li>
+                <strong>Fecha de nacimiento</strong>
+                13-01-1975
+              </li>
+              <li>
+                <strong>Telefono</strong>
+                +54 9 011 123452468
+              </li>
+              <li>
+                <strong>Correo</strong>
+                Chef.ElizabethCaballero@gmail.com
+              </li>
+              <li>
+                <strong>Website</strong>
+                www.CaballeroElizabeth.com
+              </li>
+              <li>
+                <strong>Dirección</strong>
+                Av. San Martin 2082 Rafael Calzada, Buenos Aires Argentina
+              </li>
+              <li>
+                <strong>POST</strong>
+                <span>Vegan Chef</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- intereses -->
+          <div class="col">
+            <h3>intereses</h3>
+            <div class="contenedor-intereses">
+              <div class="interes">
+                <i class="fa-solid fa-bowl-food"></i>
+                <span>COCINA</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-headphones"></i>
+                <span>MUSICA</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-plane"></i>
+                <span>VIAJES</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-horse"></i>
+                <span>RESCATES</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-person-hiking"></i>
+                <span>DEPORTES</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-book"></i>
+                <span>LIBROS</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-dog"></i>
+                <span>ANIMALES</span>
+              </div>
+              <div class="interes">
+                <i class="fa-solid fa-camera"></i>
+                <span>FOTOS</span>
+              </div>
             </div>
-            <!--<a href="img2/LopezFernandoCV.pdf" download="LopCV.pdf">Descarga</a>-->
-            
-            <button>
-                <a href="#">
-                        Descargar CV <i class="fa-solid fa-download"></i>
-                </a>
-                
-                <span class="overlay"></span>
-            </button>
-        
+          </div>
         </div>
+        <!--<a href="img2/LopezFernandoCV.pdf" download="LopCV.pdf">Descarga</a>-->
+
+        <button>
+          <a href="#"> Descargar CV <i class="fa-solid fa-download"></i> </a>
+
+          <span class="overlay"></span>
+        </button>
+      </div>
     </section>
 
     <!-- SECCION SKILLS -->
     <section class="skills" id="skills">
-        <div class="contenido-seccion">
-            <h2>Habilidades</h2>
-            <div class="fila">
-                <!-- Technical Skill -->
-                <div class="col">
-                    <h3>Habilidades técnicas</h3>
-                    <div class="skill">
-                        <span>Atención a los detalles</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Creatividad</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Disciplina</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>95%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Liderazgo y Gestión</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>81%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <span>Pasión y Motivación</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>99%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill">
-                        <span>Voluntad de aprender</span>
-                        <div class="barra-skill">
-                            <div class="progreso">
-                                <span>99%</span>
-                            </div>
-                        </div>
-                    </div>
+      <div class="contenido-seccion">
+        <h2>Habilidades</h2>
+        <div class="fila">
+          <!-- Technical Skill -->
+          <div class="col">
+            <h3>Habilidades técnicas</h3>
+            <div class="skill">
+              <span>Atención a los detalles</span>
+              <div class="barra-skill">
+                <div class="progreso">
+                  <span>85%</span>
                 </div>
-                
-                    
-               
+              </div>
             </div>
+            <div class="skill">
+              <span>Creatividad</span>
+              <div class="barra-skill">
+                <div class="progreso">
+                  <span>85%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill">
+              <span>Disciplina</span>
+              <div class="barra-skill">
+                <div class="progreso">
+                  <span>95%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill">
+              <span>Liderazgo y Gestión</span>
+              <div class="barra-skill">
+                <div class="progreso">
+                  <span>81%</span>
+                </div>
+              </div>
+            </div>
+            <div class="skill">
+              <span>Pasión y Motivación</span>
+              <div class="barra-skill">
+                <div class="progreso">
+                  <span>99%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <span>Voluntad de aprender</span>
+              <div class="barra-skill">
+                <div class="progreso">
+                  <span>99%</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- SECCION CURRICULUM -->
     <section id="curriculum" class="curriculum">
-        <div class="contenido-seccion">
-            <h2>Curriculum</h2>
-            <div class="fila">
-                <div class="col izquierda">
-                    <h3>Educación</h3>
-                    <div class="item izq">
-                       
-                        <a href="#" target="_blank"rel="noopener noreferrer">
-                        <h4>Universidad de Buenos Aires</h4>
-                        </a>
-                        
-                        <span class="casa">Organizadora de eventos </span>
-                        <span class="fecha">2013 - 2014</span>
-                        <p>Mis habilidades de organización de eventos demuestran mi capacidad para administrar recursos, planificar y coordinar de manera efectiva, resolver problemas, trabajar bien con otros y prestar atención a los detalles. Estas habilidades se pueden aplicar con éxito a varios roles e industrias. Estoy comprometida con la excelencia y la entrega de resultados sobresalientes en todo lo que hago. Estoy emocionada en aprovechar mi experiencia en la organización de eventos para contribuir al éxito de su empresa.</p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                             <h4>IGA-Instituto Gastronómico</h4>
-                        </a>
-                        
-                        <span class="casa">Pastelería y panadería profesional</span>
-                        <span class="fecha">2020 - 2023</span>
-                        <p>Soy una apasionada de la pastelería y la panadería profesional con amplia experiencia en el campo. Me complace presentarles mis conocimientos y habilidades en estos dos fascinantes mundos culinarios, con un enfoque especial en la pastelería vegana.</p>
-                        <p> 
-                            Mi verdadera pasión es la pastelería, y he adquirido una amplia experiencia en la creación de una amplia variedad de productos, desde pasteles y tartas hasta galletas y postres elaborados. Mi objetivo siempre ha sido combinar sabores exquisitos con una presentación visualmente atractiva, creando así experiencias culinarias memorables.
-                        </p>
-                        
-                        <p>
-                            Además de mi experiencia en pastelería y panadería convencionales, me he especializado en pastelería vegana. Me siento orgullosa de ofrecer conocimientos profundos y habilidades sólidas en la creación de productos deliciosos y de alta calidad que cumplen con los estándares de la cocina vegana. Me apasiona encontrar soluciones creativas para reemplazar ingredientes de origen animal sin comprometer el sabor, la textura y la calidad de los productos finales.Estoy constantemente actualizándome sobre las últimas tendencias en la pastelería vegana, investigando y creando nuevas recetas que satisfagan las demandas de este creciente mercado.
-                        </p>   
-                          
-                        <p>                           
-                            Estoy segura de que mi dedicación, creatividad y habilidades técnicas pueden ser una valiosa adición a su equipo. Me esfuerzo por mantener altos estándares de calidad en todo lo que hago, y disfruto trabajando en entornos dinámicos donde puedo colaborar con otros profesionales apasionados.
-                        </p>
-                        <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                    <div class="item izq">
-                        
-                        <a href="#" target="_blank"rel="noopener noreferrer">
-                            <h4>IAG-Instituto Gastronómico Argentino</a>
-                        </h4>
-                        <span class="casa">Plant Based</span>
-                        <span class="fecha">2022 - 2023</span>
-                            <p> Durante mi tiempo en el Instituto Gastronómico Argentino, tuve la suerte de estudiar pastelería, panadería y cocina vegana, áreas que me apasionan profundamente. Los programas de estudios ofrecidos en IAG son reconocidos por su excelencia académica y su enfoque práctico, lo que me brindó la oportunidad de adquirir conocimientos sólidos y habilidades prácticas en estos campos.
-                            </p>
-                            <p>
-                            En el área de pastelería, aprendí técnicas avanzadas para crear deliciosos pasteles, tartas, postres y otros productos dulces. Además, adquirí conocimientos sobre decoración y presentación, lo que me permite diseñar creaciones visuales atractivas y satisfacer los gustos más exigentes de los comensales.
-                            </p>
-                            <p>
-                            Mi formación en panadería fue igualmente enriquecedora. Aprendí a elaborar diversos tipos de panes, desde panes tradicionales hasta especialidades artesanales. Durante mis estudios, desarrollé un profundo conocimiento de los ingredientes, técnicas de amasado y fermentación, y la importancia de mantener altos estándares de calidad en cada producto horneado.
-                            </p>
-                            Además, me complace destacar mi especialización en cocina vegana. A medida que crece la demanda de opciones alimentarias conscientes y respetuosas con el medio ambiente, me comprometí a aprender y dominar las técnicas y prácticas de la cocina vegana. En el Instituto Gastronómico Argentino, fui entrenado en la creación de platos veganos sabrosos y equilibrados, utilizando ingredientes frescos y técnicas innovadoras. Estoy emocionado de poder ofrecer mi experiencia en cocina vegana para satisfacer las necesidades de los comensales que buscan opciones alimentarias más saludables y sostenibles.</p>
-                            <div class="conectori">
-                            <div class="circuloi"></div>
-                        </div>
-                    </div>
-                </div>
+      <div class="contenido-seccion">
+        <h2>Curriculum</h2>
+        <div class="fila">
+          <div class="col izquierda">
+            <h3>Educación</h3>
+            <div class="item izq">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <h4>Universidad de Buenos Aires</h4>
+              </a>
 
-            
-        
-
-                <div class="col derecha">
-                    <h3>Experiencia</h3>
-
-                    <div class="item der">
-                         <h4>Restaurantes y Eventos</h4>
-                            <span class="casa">Camarera Profesional de Salón</span>
-                            <span class="fecha">1995 - 2018</span>
-                            <p>
-                            Durante más de dos décadas, he tenido el privilegio de trabajar en diversos establecimientos, incluyendo restaurantes de alta categoría, hoteles y servicios de banquetes. Mi objetivo siempre ha sido proporcionar a los clientes una experiencia excepcional y asegurarme de que se sientan bienvenidos y atendidos en todo momento.</p>
-                            <p>
-                            A lo largo de mi trayectoria, he perfeccionado mis habilidades en la atención al cliente, convirtiéndome en una experta en la satisfacción y el cuidado de los comensales. Mi enfoque se basa en brindar un servicio amable y eficiente, garantizando que cada interacción sea personalizada y agradable. Mi objetivo es anticipar las necesidades de los clientes y superar sus expectativas, creando así una atmósfera cálida y acogedora que los haga sentir como en casa.</p>
-                            <p>
-                            Mi experiencia también me ha permitido desarrollar excelentes habilidades de comunicación y trabajo en equipo. He colaborado estrechamente con el personal de cocina, bartenders y otros camareros para garantizar una experiencia fluida y sin problemas. Trabajar en un entorno acelerado y bajo presión es algo que manejo con facilidad, siempre manteniendo la calma y resolviendo cualquier problema que pueda surgir con rapidez y eficacia.</p>
-                            <p>
-                            Además de mis habilidades en el servicio al cliente, también tengo conocimientos en manejo de bandejas, montaje y desmontaje de mesas, toma de pedidos, conocimiento de menús, recomendaciones de maridaje, organizacion de eventos, pastelería convencional, pastelería vegana, panadería y diseño de menu. Soy una persona organizada y detallista, lo que me permite mantener un entorno limpio y ordenado para el disfrute de los clientes.</p>
-                            <p>    
-                            A lo largo de mi carrera, he sido reconocida por mi profesionalismo, actitud positiva y dedicación al trabajo. Mi pasión por la industria de la hospitalidad es evidente en cada interacción que tengo con los clientes y en cada detalle que atiendo.</p>
-                            <p> 
-                            Estoy segura de que mi vasta experiencia, habilidades y compromiso pueden ser una valiosa adición a su equipo. Me enorgullece formar parte de un equipo dinámico y apasionado, donde pueda aportar mi experiencia y contribuir al éxito de su establecimiento.</p>
-                        
-                            <div class="conectord">
-                                <div class="circulod"></div>
-                            </div>
-                    </div>
-
-                    <div class="item der">
-                        <h4>Encargada de Restaurantes</h4>
-                           <span class="casa"> <h4>Encargada</h4></span>
-                           <span class="fecha">2007 - 2010</span>
-                           <p>
-                            Como encargada de restaurantes con amplia experiencia, me entusiasma postularme para un puesto en su empresa. A lo largo de mi carrera, he liderado equipos, mejorado la eficiencia operativa y garantizado la satisfacción del cliente. Soy apasionada por el trabajo en equipo y estoy comprometida con la excelencia. Creo firmemente en la comunicación abierta y en establecer relaciones sólidas con el personal y los clientes. Estoy segura de que mi experiencia y habilidades serían una valiosa adición a su equipo. Agradezco su consideración y espero tener la oportunidad de discutir cómo puedo contribuir al éxito de su restaurante.</p>
-                          
-                       
-                           <div class="conectord">
-                               <div class="circulod"></div>
-                           </div>
-                   </div>
-                </div>
+              <span class="casa"> Organizadora de eventos </span>
+              <span class="fecha"> 2013 - 2014 </span>
+              <p>
+                Mis habilidades de organización de eventos demuestran mi
+                capacidad para administrar recursos, planificar y coordinar de
+                manera efectiva, resolver problemas, trabajar bien con otros y
+                prestar atención a los detalles. Estas habilidades se pueden
+                aplicar con éxito a varios roles e industrias. Estoy
+                comprometida con la excelencia y la entrega de resultados
+                sobresalientes en todo lo que hago. Estoy emocionada en
+                aprovechar mi experiencia en la organización de eventos para
+                contribuir al éxito de su empresa.
+              </p>
+              <div class="conectori">
+                <div class="circuloi"></div>
+              </div>
             </div>
+            <div class="item izq">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <h4>IGA-Instituto Gastronómico</h4>
+              </a>
+
+              <span class="casa">Pastelería y panadería profesional</span>
+              <span class="fecha">2020 - 2023</span>
+              <p>
+                Soy una apasionada de la pastelería y la panadería profesional
+                con amplia experiencia en el campo. Me complace presentarles mis
+                conocimientos y habilidades en estos dos fascinantes mundos
+                culinarios, con un enfoque especial en la pastelería vegana.
+              </p>
+              <p>
+                Mi verdadera pasión es la pastelería, y he adquirido una amplia
+                experiencia en la creación de una amplia variedad de productos,
+                desde pasteles y tartas hasta galletas y postres elaborados. Mi
+                objetivo siempre ha sido combinar sabores exquisitos con una
+                presentación visualmente atractiva, creando así experiencias
+                culinarias memorables.
+              </p>
+
+              <p>
+                Además de mi experiencia en pastelería y panadería
+                convencionales, me he especializado en pastelería vegana. Me
+                siento orgullosa de ofrecer conocimientos profundos y
+                habilidades sólidas en la creación de productos deliciosos y de
+                alta calidad que cumplen con los estándares de la cocina vegana.
+                Me apasiona encontrar soluciones creativas para reemplazar
+                ingredientes de origen animal sin comprometer el sabor, la
+                textura y la calidad de los productos finales.Estoy
+                constantemente actualizándome sobre las últimas tendencias en la
+                pastelería vegana, investigando y creando nuevas recetas que
+                satisfagan las demandas de este creciente mercado.
+              </p>
+
+              <p>
+                Estoy segura de que mi dedicación, creatividad y habilidades
+                técnicas pueden ser una valiosa adición a su equipo. Me esfuerzo
+                por mantener altos estándares de calidad en todo lo que hago, y
+                disfruto trabajando en entornos dinámicos donde puedo colaborar
+                con otros profesionales apasionados.
+              </p>
+              <div class="conectori">
+                <div class="circuloi"></div>
+              </div>
+            </div>
+            <div class="item izq">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <h4>IAG-Instituto Gastronómico Argentino</h4>
+              </a>
+              <span class="casa">Plant Based</span>
+              <span class="fecha">2022 - 2023</span>
+              <p>
+                Durante mi tiempo en el Instituto Gastronómico Argentino, tuve
+                la suerte de estudiar pastelería, panadería y cocina vegana,
+                áreas que me apasionan profundamente. Los programas de estudios
+                ofrecidos en IAG son reconocidos por su excelencia académica y
+                su enfoque práctico, lo que me brindó la oportunidad de adquirir
+                conocimientos sólidos y habilidades prácticas en estos campos.
+              </p>
+              <p>
+                En el área de pastelería, aprendí técnicas avanzadas para crear
+                deliciosos pasteles, tartas, postres y otros productos dulces.
+                Además, adquirí conocimientos sobre decoración y presentación,
+                lo que me permite diseñar creaciones visuales atractivas y
+                satisfacer los gustos más exigentes de los comensales.
+              </p>
+              <p>
+                Mi formación en panadería fue igualmente enriquecedora. Aprendí
+                a elaborar diversos tipos de panes, desde panes tradicionales
+                hasta especialidades artesanales. Durante mis estudios,
+                desarrollé un profundo conocimiento de los ingredientes,
+                técnicas de amasado y fermentación, y la importancia de mantener
+                altos estándares de calidad en cada producto horneado.
+              </p>
+              <p>
+                Además, me complace destacar mi especialización en cocina
+                vegana. A medida que crece la demanda de opciones alimentarias
+                conscientes y respetuosas con el medio ambiente, me comprometí a
+                aprender y dominar las técnicas y prácticas de la cocina vegana.
+                En el Instituto Gastronómico Argentino, fui entrenado en la
+                creación de platos veganos sabrosos y equilibrados, utilizando
+                ingredientes frescos y técnicas innovadoras. Estoy emocionado de
+                poder ofrecer mi experiencia en cocina vegana para satisfacer
+                las necesidades de los comensales que buscan opciones
+                alimentarias más saludables y sostenibles.
+              </p>
+              <div class="conectori">
+                <div class="circuloi"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col derecha">
+            <h3>Experiencia</h3>
+
+            <div class="item der">
+              <h4>Restaurantes y Eventos</h4>
+              <span class="casa">Camarera Profesional de Salón</span>
+              <span class="fecha">1995 - 2018</span>
+              <p>
+                Durante más de dos décadas, he tenido el privilegio de trabajar
+                en diversos establecimientos, incluyendo restaurantes de alta
+                categoría, hoteles y servicios de banquetes. Mi objetivo siempre
+                ha sido proporcionar a los clientes una experiencia excepcional
+                y asegurarme de que se sientan bienvenidos y atendidos en todo
+                momento.
+              </p>
+              <p>
+                A lo largo de mi trayectoria, he perfeccionado mis habilidades
+                en la atención al cliente, convirtiéndome en una experta en la
+                satisfacción y el cuidado de los comensales. Mi enfoque se basa
+                en brindar un servicio amable y eficiente, garantizando que cada
+                interacción sea personalizada y agradable. Mi objetivo es
+                anticipar las necesidades de los clientes y superar sus
+                expectativas, creando así una atmósfera cálida y acogedora que
+                los haga sentir como en casa.
+              </p>
+              <p>
+                Mi experiencia también me ha permitido desarrollar excelentes
+                habilidades de comunicación y trabajo en equipo. He colaborado
+                estrechamente con el personal de cocina, bartenders y otros
+                camareros para garantizar una experiencia fluida y sin
+                problemas. Trabajar en un entorno acelerado y bajo presión es
+                algo que manejo con facilidad, siempre manteniendo la calma y
+                resolviendo cualquier problema que pueda surgir con rapidez y
+                eficacia.
+              </p>
+              <p>
+                Además de mis habilidades en el servicio al cliente, también
+                tengo conocimientos en manejo de bandejas, montaje y desmontaje
+                de mesas, toma de pedidos, conocimiento de menús,
+                recomendaciones de maridaje, organizacion de eventos, pastelería
+                convencional, pastelería vegana, panadería y diseño de menu. Soy
+                una persona organizada y detallista, lo que me permite mantener
+                un entorno limpio y ordenado para el disfrute de los clientes.
+              </p>
+              <p>
+                A lo largo de mi carrera, he sido reconocida por mi
+                profesionalismo, actitud positiva y dedicación al trabajo. Mi
+                pasión por la industria de la hospitalidad es evidente en cada
+                interacción que tengo con los clientes y en cada detalle que
+                atiendo.
+              </p>
+              <p>
+                Estoy segura de que mi vasta experiencia, habilidades y
+                compromiso pueden ser una valiosa adición a su equipo. Me
+                enorgullece formar parte de un equipo dinámico y apasionado,
+                donde pueda aportar mi experiencia y contribuir al éxito de su
+                establecimiento.
+              </p>
+
+              <div class="conectord">
+                <div class="circulod"></div>
+              </div>
+            </div>
+
+            <div class="item der">
+              <h4>Encargada de Restaurantes</h4>
+              <span class="casa">Encargada</span>
+              <span class="fecha">2007 - 2010</span>
+              <p>
+                Como encargada de restaurantes con amplia experiencia, me
+                entusiasma postularme para un puesto en su empresa. A lo largo
+                de mi carrera, he liderado equipos, mejorado la eficiencia
+                operativa y garantizado la satisfacción del cliente. Soy
+                apasionada por el trabajo en equipo y estoy comprometida con la
+                excelencia. Creo firmemente en la comunicación abierta y en
+                establecer relaciones sólidas con el personal y los clientes.
+                Estoy segura de que mi experiencia y habilidades serían una
+                valiosa adición a su equipo. Agradezco su consideración y espero
+                tener la oportunidad de discutir cómo puedo contribuir al éxito
+                de su restaurante.
+              </p>
+
+              <div class="conectord">
+                <div class="circulod"></div>
+              </div>
+            </div>
+          </div>
         </div>
-    
+      </div>
     </section>
 
     <!-- SECCION PORTFOLIO -->
     <section id="portfolio" class="portfolio">
-        <div class="contenido-seccion">
-            <h2>PORTFOLIO</h2>
-            <div class="galeria">
-                <div class="proyecto">
-                    <img src="https://i.postimg.cc/W3vjQWfC/postre-Vegano.png" alt="">
-                    <div class="overlay">
-                        <h3>Postres Veganos</h3>
-                        <p>Los 10 mejores</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="https://i.postimg.cc/zGHr3Zs4/tortas-Veganas.png" alt="">
-                    <div class="overlay">
-                        <h3>Tortas Veganas</h3>
-                        <p>Ricas y sanas</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="https://i.postimg.cc/bJgX4znS/paella-Vegana.png" alt="">
-                    <div class="overlay">
-                        <h3>Platos Principales</h3>
-                        <p>El paso a paso y su presentación</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="https://i.postimg.cc/8z62NdWS/2.png" alt="">
-                    <div class="overlay">
-                        <h3>Recetas ricas y faciles</h3>
-                        <p>Creadas por Elizabeth</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="https://i.postimg.cc/cCzzN6LC/logo-Plantt.png" alt="">
-                    <div class="overlay">
-                        <h3>Nutricion</h3>
-                        <p>Recomendaciones</p>
-                    </div>
-                </div>
-                <div class="proyecto">
-                    <img src="https://i.postimg.cc/3J6tnrx8/fiestas-YEvenntos.png" alt="">
-                    <div class="overlay">
-                        <h3>Galeria Imagenes</h3>
-                        <p>Fiestas y Eventos</p>
-                    </div>
-                </div>
+      <div class="contenido-seccion">
+        <h2>PORTFOLIO</h2>
+        <div class="galeria">
+          <div class="proyecto">
+            <img src="https://i.postimg.cc/W3vjQWfC/postre-Vegano.png" alt="" />
+            <div class="overlay">
+              <h3>Postres Veganos</h3>
+              <p>Los 10 mejores</p>
             </div>
+          </div>
+          <div class="proyecto">
+            <img
+              src="https://i.postimg.cc/zGHr3Zs4/tortas-Veganas.png"
+              alt=""
+            />
+            <div class="overlay">
+              <h3>Tortas Veganas</h3>
+              <p>Ricas y sanas</p>
+            </div>
+          </div>
+          <div class="proyecto">
+            <img src="https://i.postimg.cc/bJgX4znS/paella-Vegana.png" alt="" />
+            <div class="overlay">
+              <h3>Platos Principales</h3>
+              <p>El paso a paso y su presentación</p>
+            </div>
+          </div>
+          <div class="proyecto">
+            <img src="https://i.postimg.cc/8z62NdWS/2.png" alt="" />
+            <div class="overlay">
+              <h3>Recetas ricas y faciles</h3>
+              <p>Creadas por Elizabeth</p>
+            </div>
+          </div>
+          <div class="proyecto">
+            <img src="https://i.postimg.cc/cCzzN6LC/logo-Plantt.png" alt="" />
+            <div class="overlay">
+              <h3>Nutricion</h3>
+              <p>Recomendaciones</p>
+            </div>
+          </div>
+          <div class="proyecto">
+            <img
+              src="https://i.postimg.cc/3J6tnrx8/fiestas-YEvenntos.png"
+              alt=""
+            />
+            <div class="overlay">
+              <h3>Galeria Imagenes</h3>
+              <p>Fiestas y Eventos</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- SECCION CONTACTO Primera columna-->
     <section id="contacto" class="contacto">
-        <div class="contenido-seccion">
-            <h2>CONTACTO</h2>
-            <div class="fila">
+      <div class="contenido-seccion">
+        <h2>CONTACTO</h2>
+        <div class="fila">
+          <div class="col">
+            <form
+              action="https://formspree.io/f/xgebbgel"
+              method="POST"
+              class="speaker-form"
+              enctype="multipart/form-data"
+            >
+              <label>
+                <input type="text" name="name" placeholder="Nombre" id="Name" />
+              </label>
+              <label>
+                <input
+                  type="phone number"
+                  name="phone"
+                  placeholder="Telefono"
+                  id="Phone"
+                />
+              </label>
+              <label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Correo"
+                  id="Email"
+                />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Asunto"
+                  required
+                />
+              </label>
 
-                <div class="col">
-                    <form  action="https://formspree.io/f/xgebbgel"
-                    method="POST" class="speaker-form" enctype="multipart/form-data">
-                        <label>
-                             <input type="text" name="name" placeholder="Nombre" id="Name">
-                        </label>
-                        <label>
-                             <input type="phone number" name="phone" placeholder="Telefono" id="Phone">
-                        </label>
-                        <label>
-                             <input type="email" name="email" placeholder="Correo" id="Email">
-                        </label>
-                        <label>
-                             <input type="text" name="subject" placeholder="Asunto" required>
-                        </label>
-                        
-                        <label>
-                             <textarea name="message" placeholder="Mensaje" required></textarea>
-                        </label>
-                        <button type="submit">Enviar mensaje<i class="fa-solid fa-paper-plane"></i>
-                        <span class="overlay"></span>
-                        </button>
-                    </form>
-                </div>
+              <label>
+                <textarea
+                  name="message"
+                  placeholder="Mensaje"
+                  required
+                ></textarea>
+              </label>
+              <button type="submit">
+                Enviar mensaje<i class="fa-solid fa-paper-plane"></i>
+                <span class="overlay"></span>
+              </button>
+            </form>
+          </div>
 
-                <div class="col">
-                    <img src="https://i.postimg.cc/FzwTBqTJ/ubicacion.png" alt="">
-                    <div class="info">
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-location-dot"></i>
-                                Av Vegan, Somalia Reino Unido
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-mobile-screen"></i>
-                                Llamanos: +54 9 011 23443597 
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
-                                Email: Chef.ElizabethCaballero@gmail.com
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+          <div class="col">
+            <img src="https://i.postimg.cc/FzwTBqTJ/ubicacion.png" alt="" />
+            <div class="info">
+              <ul>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i>
+                  Av Vegan, Somalia Reino Unido
+                </li>
+                <li>
+                  <i class="fa-solid fa-mobile-screen"></i>
+                  Llamanos: +54 9 011 23443597
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope"></i>
+                  Email: Chef.ElizabethCaballero@gmail.com
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-    
-
-        
 
     <div class="ribbon">
-        <div class="redes">
-            <!-- Botón para ir a la página de inicio -->
-            <a href="https://tucvdigital.store" title="Inicio">
-                <i class='bx bxs-home-alt-2'></i>
-            </a>
-                        
-            <!-- Botón para regresar a la página anterior -->
-            <a href="javascript:void(0);" onclick="goBack()" title="Volver">
-                <i class='bx bx-arrow-to-left'></i>
-            </a>
+      <div class="redes">
+        <!-- Botón para ir a la página de inicio -->
+        <a href="https://tucvdigital.store" title="Inicio">
+          <i class="bx bxs-home-alt-2"></i>
+        </a>
 
-            <a href="https://wa.me/+541122532506?text=Hola,%20me%20ha%20llamado%20la%20atención%20el%20sitio%20número%2001%20,%20quisiera%20más%20información%20sobre%20sus%20servicios%20." target="_blank">
-                <i class='bx bxl-whatsapp'></i>
-            </a>
-            
-        </div>
-        Tu sitio Web Personal
+        <!-- Botón para regresar a la página anterior -->
+        <a href="javascript:void(0);" onclick="goBack()" title="Volver">
+          <i class="bx bx-arrow-to-left"></i>
+        </a>
+
+        <a
+          href="https://wa.me/+541122532506?text=Hola,%20me%20ha%20llamado%20la%20atención%20el%20sitio%20número%2001%20,%20quisiera%20más%20información%20sobre%20sus%20servicios%20."
+          target="_blank"
+        >
+          <i class="bx bxl-whatsapp"></i>
+        </a>
+      </div>
+      Tu sitio Web Personal
     </div>
 
-    <a href="./confirmar/index.html"><button class="button">
+    <a href="./confirmar/index.html"
+      ><button class="button">
         <div class="bg"></div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -550,7 +729,7 @@
             d="M62.2941 145.984C62.2941 145.984 55.4671 161.167 40.4932 162.746C25.5194 164.326 23.7159 174.449 23.7159 174.449"
           ></path>
         </svg>
-  
+
         <div class="wrap">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -566,7 +745,7 @@
               d="M182.674 2H203C211.837 2 219 9.16344 219 18V24C219 32.8366 211.837 40 203 40H18C9.16345 40 2 32.8366 2 24V18C2 9.16344 9.16344 2 18 2H47.8855"
             ></path>
           </svg>
-  
+
           <div class="outline"></div>
           <div class="content">
             <span class="char state-1">
@@ -579,7 +758,7 @@
               <span data-label="r" style="--i: 7">r</span>
               <span data-label="!" style="--i: 8">!</span>
             </span>
-  
+
             <div class="icon">
               <div></div>
             </div>
@@ -596,42 +775,57 @@
             -->
           </div>
         </div>
-    </button></a>
+      </button></a
+    >
 
-      <!-- Cartel de descuento -->
+    <!-- Cartel de descuento -->
     <a href="../../promociones/descuentos/index.html" class="discount-banner">
-        <img src="https://i.postimg.cc/B6Br3nZ7/80off.png" alt="Descuento del 80%">
+      <img
+        src="https://i.postimg.cc/B6Br3nZ7/80off.png"
+        alt="Descuento del 80%"
+      />
     </a>
-      
 
     <div class="whatsupp">
-        <a href="https://api.whatsapp.com/send?phone=+" class="btn-wsp" target="_blank">
-            <i class="icon-whatsapp">
-                <img src="./css/icons8-whatsapp.svg" class="btn-wsp" alt="Icono whatsapp">
-            </i>
-         
-        </a>
-
+      <a
+        href="https://api.whatsapp.com/send?phone=+"
+        class="btn-wsp"
+        target="_blank"
+      >
+        <i class="icon-whatsapp">
+          <img
+            src="./css/icons8-whatsapp.svg"
+            class="btn-wsp"
+            alt="Icono whatsapp"
+          />
+        </i>
+      </a>
     </div>
 
     <!-- footer -->
     <footer>
-        <a href="#inicio" class="arriba">
-            <i class="fa-solid fa-angles-up"></i>
-        </a>
-        <div class="redes">
-            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-skype"></i></a>
-            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-rss"></i></a>
-        </div>
-       
+      <a href="#inicio" class="arriba">
+        <i class="fa-solid fa-angles-up"></i>
+      </a>
+      <div class="redes">
+        <a href="#" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-brands fa-facebook-f"></i
+        ></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-brands fa-skype"></i
+        ></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-brands fa-linkedin-in"></i
+        ></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"
+          ><i class="fa-solid fa-rss"></i
+        ></a>
+      </div>
     </footer>
 
-   
-    
     <script type="module" src="./script.js"></script>
-    
-</body>
+  </body>
 </html>
