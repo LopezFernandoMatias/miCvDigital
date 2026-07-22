@@ -72,7 +72,7 @@ const glassMaterial = new THREE.MeshPhysicalMaterial({
 
 const fontLoader = new FontLoader();
 
-fontLoader.load("./fonts/helvetiker_regular.typeface.json", (font) => {
+fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
   const geometry = new TextGeometry("80%", {
     font,
 
