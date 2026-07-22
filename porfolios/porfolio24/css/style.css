@@ -1721,3 +1721,11 @@ textarea.input {
     padding-right: 3.5rem;
   }
 }
+
+/* Ajuste para dispositivos pequeños: el banner de descuento no tape la barra inferior */
+@media screen and (max-width: 768px) {
+  .discount-banner {
+    bottom: 120px; /* lo subimos para que no se superponga con el ribbon */
+    z-index: 1001; /* lo ponemos por encima de la barra (z-index: 1000) */
+  }
+}
