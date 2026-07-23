@@ -30,11 +30,7 @@ const isTouchDevice =
   "ontouchstart" in window ||
   navigator.maxTouchPoints > 0;
 
-// Ocultar cursor en dispositivos táctiles
-if (isTouchDevice) {
-  const cursorEl = document.getElementById("cursor");
-  if (cursorEl) cursorEl.style.display = "none";
-}
+// En móvil, el cursor de arma sigue visible y sigue al dedo
 
 // ═══════════════════════════════════════════════════════════════
 // PORTFOLIO DATA — 20 entries with real Unsplash images
@@ -1160,15 +1156,20 @@ window.addEventListener("click", (e) => {
 });
 
 function updateCursor() {
+  // ── Actualizar posición visual del cursor (smooth follow) ──
   curRX += (curX - curRX) * 0.18;
   curRY += (curY - curRY) * 0.18;
   cursorEl.style.left = curRX + "px";
   cursorEl.style.top = curRY + "px";
 
   if (isModalOpen) {
-    document.body.classList.remove("hover-3d", "hover-clickable");
+    document.body.classList.remove("hover-3d", "hover-clickable", "aiming");
     return;
   }
+
+  // ── En móvil, el aiming se maneja en checkAiming() durante touchmove ──
+  // Solo procesar hover desktop aquí
+  if (isTouchDevice) return;
 
   raycaster.setFromCamera(mouse2D, camera);
   const hits = raycaster.intersectObjects(clickableMeshes);
@@ -1214,7 +1215,7 @@ function updateCursor() {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// SCROLL NAVIGATION — Desktop (wheel) + Mobile (touch)
+// SCROLL NAVIGATION — Desktop (wheel) + Mobile (touch + aiming)
 // ═══════════════════════════════════════════════════════════════
 
 // ── Desktop: Wheel ──
@@ -1230,66 +1231,87 @@ window.addEventListener("wheel", (e) => {
   else gotoSection(Math.max(currentSection - 1, 0));
 });
 
-// ── Mobile: Touch Swipe ──
+// ── Mobile: Touch con cursor de arma + aiming ──
 let touchStartY = 0;
 let touchStartX = 0;
 let touchStartTime = 0;
 let isSwiping = false;
+let touchCurrentY = 0;
+let touchCurrentX = 0;
 
 window.addEventListener(
   "touchstart",
   (e) => {
-    // No interceptar toques dentro del modal
     if (isModalOpen) return;
 
-    touchStartY = e.touches[0].clientY;
-    touchStartX = e.touches[0].clientX;
+    const touch = e.touches[0];
+    touchStartY = touch.clientY;
+    touchStartX = touch.clientX;
+    touchCurrentY = touch.clientY;
+    touchCurrentX = touch.clientX;
     touchStartTime = Date.now();
     isSwiping = true;
 
-    // Raycasting táctil: actualizar mouse2D para que el click funcione
-    mouse2D.x = (e.touches[0].clientX / innerWidth) * 2 - 1;
-    mouse2D.y = (e.touches[0].clientY / innerHeight) * -2 + 1;
+    // Actualizar cursor para que siga al dedo inmediatamente
+    curX = touch.clientX;
+    curY = touch.clientY;
+    mouse2D.x = (touch.clientX / innerWidth) * 2 - 1;
+    mouse2D.y = (touch.clientY / innerHeight) * -2 + 1;
+
+    // Verificar si está apuntando a un objetivo al inicio
+    checkAiming();
   },
-  { passive: true },
+  { passive: false },
 );
 
 window.addEventListener(
   "touchmove",
   (e) => {
-    if (!isSwiping || isModalOpen || isAnimating) return;
+    if (isModalOpen) return;
+    e.preventDefault(); // Prevenir scroll nativo
 
-    const touchY = e.touches[0].clientY;
-    const dy = touchStartY - touchY;
+    const touch = e.touches[0];
+    touchCurrentY = touch.clientY;
+    touchCurrentX = touch.clientX;
 
-    // Solo procesar swipe vertical significativo
-    if (Math.abs(dy) > 60) {
-      isSwiping = false; // Evitar múltiples navegaciones
+    // ── Cursor sigue al dedo ──
+    curX = touch.clientX;
+    curY = touch.clientY;
+    mouse2D.x = (touch.clientX / innerWidth) * 2 - 1;
+    mouse2D.y = (touch.clientY / innerHeight) * -2 + 1;
 
-      if (dy > 0) {
-        gotoSection(Math.min(currentSection + 1, SECTION_COUNT - 1));
-      } else {
-        gotoSection(Math.max(currentSection - 1, 0));
+    // ── Verificar si está apuntando a un objetivo ──
+    checkAiming();
+
+    // ── Swipe vertical para navegar ──
+    if (!isAnimating && isSwiping) {
+      const dy = touchStartY - touchCurrentY;
+
+      if (Math.abs(dy) > 80) {
+        isSwiping = false;
+        if (dy > 0) {
+          gotoSection(Math.min(currentSection + 1, SECTION_COUNT - 1));
+        } else {
+          gotoSection(Math.max(currentSection - 1, 0));
+        }
       }
     }
   },
-  { passive: true },
+  { passive: false },
 );
 
 window.addEventListener("touchend", (e) => {
-  if (!isSwiping || isModalOpen) return;
+  if (isModalOpen) return;
 
-  const touchEndY = e.changedTouches[0].clientY;
-  const touchEndX = e.changedTouches[0].clientX;
-  const dy = touchStartY - touchEndY;
-  const dx = touchStartX - touchEndX;
+  const touch = e.changedTouches[0];
+  const dy = touchStartY - touch.clientY;
+  const dx = touchStartX - touch.clientX;
   const dt = Date.now() - touchStartTime;
 
-  // Click táctil (toque corto sin movimiento significativo)
-  if (Math.abs(dy) < 10 && Math.abs(dx) < 10 && dt < 300) {
-    // Actualizar mouse2D para raycasting
-    mouse2D.x = (touchEndX / innerWidth) * 2 - 1;
-    mouse2D.y = (touchEndY / innerHeight) * -2 + 1;
+  // ── Tap para abrir modal (toque corto, poco movimiento) ──
+  if (Math.abs(dy) < 15 && Math.abs(dx) < 15 && dt < 250) {
+    mouse2D.x = (touch.clientX / innerWidth) * 2 - 1;
+    mouse2D.y = (touch.clientY / innerHeight) * -2 + 1;
 
     raycaster.setFromCamera(mouse2D, camera);
     const hits = raycaster.intersectObjects(clickableMeshes);
@@ -1309,14 +1331,50 @@ window.addEventListener("touchend", (e) => {
     }
   }
 
-  // Swipe vertical
-  else if (Math.abs(dy) > 40 && Math.abs(dy) > Math.abs(dx)) {
-    if (dy > 0) gotoSection(Math.min(currentSection + 1, SECTION_COUNT - 1));
-    else gotoSection(Math.max(currentSection - 1, 0));
-  }
-
+  // ── Quitar aiming al soltar ──
+  document.body.classList.remove("aiming");
   isSwiping = false;
 });
+
+// ── Función: verificar si el cursor apunta a un objetivo ──
+function checkAiming() {
+  if (isModalOpen) {
+    document.body.classList.remove("aiming");
+    return;
+  }
+
+  raycaster.setFromCamera(mouse2D, camera);
+  const hits = raycaster.intersectObjects(clickableMeshes);
+
+  if (hits.length > 0 && hits[0].object.userData.isClickable) {
+    document.body.classList.add("aiming");
+
+    // Efecto de escala hover en el objeto apuntado
+    const mesh = hits[0].object;
+    if (hoveredMesh !== mesh) {
+      if (hoveredMesh && hoveredMesh.userData.originalScale) {
+        hoveredMesh.scale.setScalar(hoveredMesh.userData.originalScale);
+      }
+      hoveredMesh = mesh;
+    }
+    const targetScale = mesh.userData.hoverScale;
+    mesh.scale.lerp(
+      new THREE.Vector3(targetScale, targetScale, targetScale),
+      0.15,
+    );
+  } else {
+    document.body.classList.remove("aiming");
+
+    if (hoveredMesh) {
+      const orig = hoveredMesh.userData.originalScale;
+      hoveredMesh.scale.lerp(new THREE.Vector3(orig, orig, orig), 0.15);
+      if (Math.abs(hoveredMesh.scale.x - orig) < 0.01) {
+        hoveredMesh.scale.setScalar(orig);
+        hoveredMesh = null;
+      }
+    }
+  }
+}
 
 // ═══════════════════════════════════════════════════════════════
 // NAV BUTTONS

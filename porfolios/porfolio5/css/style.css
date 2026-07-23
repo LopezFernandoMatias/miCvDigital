@@ -814,22 +814,26 @@ nav {
    MOBILE / TOUCH FIXES
    ═══════════════════════════════════════════════════════════════ */
 
-/* Ocultar cursor personalizado en dispositivos táctiles */
+/* Estilos móvil - cursor de arma visible y funcional */
 @media (hover: none) and (pointer: coarse) {
   html,
   body {
-    cursor: auto !important;
+    cursor: none !important;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
+  /* Cursor siempre visible en móvil */
   #cursor {
-    display: none !important;
+    display: block !important;
   }
 
   .nav-btn,
   #c-br,
   #modal-close,
   #modal-link {
-    cursor: pointer !important;
+    cursor: none !important;
   }
 
   /* Swipe hint para móvil */
@@ -888,6 +892,76 @@ nav {
     font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.7);
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AIMING MODE — Cursor de arma apuntando a objetivo
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Desktop: hover-clickable ya existe */
+/* Móvil: clase aiming aplicada por JS durante touchmove */
+
+body.aiming #cursor .ring.outer {
+  width: 80px !important;
+  height: 80px !important;
+  border-color: #ff0000 !important;
+  border-width: 3px !important;
+  opacity: 1 !important;
+  box-shadow:
+    0 0 20px rgba(255, 0, 0, 0.6),
+    0 0 40px rgba(255, 0, 0, 0.3),
+    0 0 60px rgba(255, 0, 0, 0.1);
+  animation: aim-pulse 0.8s ease-in-out infinite;
+}
+
+body.aiming #cursor .ring.inner {
+  width: 24px !important;
+  height: 24px !important;
+  background: #ff0000 !important;
+  border: none !important;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+}
+
+body.aiming #cursor .dot {
+  background: #ff0000 !important;
+  width: 8px !important;
+  height: 8px !important;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+}
+
+@keyframes aim-pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+/* Crosshair lines cuando apunta (efecto mira) */
+body.aiming #cursor::before,
+body.aiming #cursor::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+body.aiming #cursor::before {
+  width: 2px;
+  height: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body.aiming #cursor::after {
+  width: 20px;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Swipe hint - solo visible en móvil */
