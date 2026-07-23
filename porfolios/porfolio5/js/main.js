@@ -1336,10 +1336,14 @@ window.addEventListener("touchend", (e) => {
   isSwiping = false;
 });
 
+// ── Estado previo de aiming, para detectar el momento exacto en que se fija el objetivo ──
+let wasAiming = false;
+
 // ── Función: verificar si el cursor apunta a un objetivo ──
 function checkAiming() {
   if (isModalOpen) {
     document.body.classList.remove("aiming");
+    wasAiming = false;
     return;
   }
 
@@ -1348,6 +1352,12 @@ function checkAiming() {
 
   if (hits.length > 0 && hits[0].object.userData.isClickable) {
     document.body.classList.add("aiming");
+
+    // ── Vibrar solo en el instante en que se fija el objetivo (no en cada frame) ──
+    if (!wasAiming && navigator.vibrate) {
+      navigator.vibrate(35);
+    }
+    wasAiming = true;
 
     // Efecto de escala hover en el objeto apuntado
     const mesh = hits[0].object;
@@ -1364,6 +1374,7 @@ function checkAiming() {
     );
   } else {
     document.body.classList.remove("aiming");
+    wasAiming = false;
 
     if (hoveredMesh) {
       const orig = hoveredMesh.userData.originalScale;
